@@ -81,13 +81,29 @@ class Models extends Model
 		$this->table = $table;
 	}
 
+	/** CONSULTAS **/
+
+	public function simpleInsert($data)
+	{
+		/** HACE FALTA AGREGAR UNA MEDIDA DE SEUGURIDAD PARA INYECCIONES SQL */
+		$estruct = array_keys($data);$estruct = implode($estruct, '`,`');
+		$values  = array_values($data); $values = implode($values, '\',\'');
+		$sql     =  ('INSERT INTO '.$this->table.' (`'.$estruct.'`) VALUES (\''.$values.'\')');
+
+		if($this->db->query($sql))
+		{
+			return true;
+		}
+		return error_log($sql);
+	}
+
 	/**
 	 * Devuelve la ultima fila de la tabla
 	 * @return [type] [description]
 	 */
-	public function getLastRow()
+	public function getLastRow($last = 1)
 	{
-		$sql = $this->db->query('SELECT * FROM '. $this->table .' ORDER BY '. $this->id .' DESC LIMIT 1');
+		$sql = $this->db->query('SELECT * FROM '. $this->table .' ORDER BY '. $this->id .' DESC LIMIT 0, '.$last.'');
 		if ($sql AND $sql->num_rows > 0) return (object) $sql->fetch_assoc();
 		else return false;
 	}
@@ -103,6 +119,30 @@ class Models extends Model
 		return $this->get();
 	}
 
+	/**
+   * Establece las columnas a seleccionar
+   *
+   * @param  array|mixed  $columns
+   * @return $this
+   */
+	public function select($columns = ['*'])
+	{
+		$this->columns = [];
+		$this->bindings['select'] = [];
+		$columns = is_array($columns) ? $columns : func_get_args();
+
+		foreach ($columns as $as => $column)
+		{
+
+			$this->columns[] = $column;
+
+		}
+		$this->prepareColumns();
+		return $this;
+	}
+
+
+	/** CLAUSULAS **/
 
 	/**
 	 * [where description]
@@ -156,21 +196,44 @@ class Models extends Model
   }
 
   /**
+ 	 * Comprueba la integridad de la Clausula WHERE
+ 	 * @return [type] [description]
+ 	 */
+  public function checkWhere()
+  {
+  	if(isset($this->where['sql']))
+  	{
+  		return true;
+  	}
+  	else
+  	{
+  		$this->defaultWhere();
+  	}
+  	return false;
+  }
+
+
+  /**
    * Devuelve la consulta SQL como resultado
-   * @return mysqliObject/array
+   * @param  boolean $count Determina si solo se requiere devolver la cantidad de filas encontradas
+   * @return mysqliObject/array/int
    */
-  public function get()
+  public function get($count = false)
   {
   	$this->exect();
 
   	/* Construye la consulta */
   	$this->sentence = $this->select . SPACE . $this->columns . SPACE . $this->totals['sql'] . SPACE . $this->from . SPACE . $this->table . SPACE . $this->where['sql'] . SPACE . $this->orderBy . SPACE . $this->limit;
-			echo 'Sentencia: <strong style="color:blue">'.$this->sentence.'</strong>';
+  	//echo 'Sentencia: <strong style="color:blue">'.$this->sentence.'</strong>';
   	/* Ejecuta la consulta */
   	$query = $this->db->query($this->sentence);
   	if ($query == true)
   	{
-  		if($query->num_rows > 0)
+  		if($count)
+  		{
+  			return $query->num_rows;
+  		}
+  		elseif($query->num_rows > 0)
   		{
   			$result = $query->fetch_assoc();
 
@@ -218,52 +281,14 @@ class Models extends Model
 
  	/**
  	 * Hace un limpieza de seguridad en una variable
- 	 * para impedir inyeccion SQL y otras inseguridades mas
+ 	 * para impedir inyección SQL y otras inseguridades mas
+ 	 * en revisión
  	 * @param  String $var
  	 * @return String
  	 */
  	public function securityClean(String $var)
  	{
  		return $this->db->real_escape_string($var);
- 	}
-
- 	/**
-   * Establece las columnas a seleccionar
-   *
-   * @param  array|mixed  $columns
-   * @return $this
-   */
- 	public function select($columns = ['*'])
- 	{
- 		$this->columns = [];
- 		$this->bindings['select'] = [];
- 		$columns = is_array($columns) ? $columns : func_get_args();
-
- 		foreach ($columns as $as => $column)
- 		{
-
- 			$this->columns[] = $column;
-
- 		}
- 		$this->prepareColumns();
- 		return $this;
- 	}
-
- 	/**
- 	 * Comprueba la integridad de la Clausula WHERE
- 	 * @return [type] [description]
- 	 */
- 	public function checkWhere()
- 	{
- 		if(isset($this->where['sql']))
- 		{
- 			return true;
- 		}
- 		else
- 		{
- 			$this->defaultWhere();
- 		}
- 		return false;
  	}
 
  	/**
@@ -309,10 +334,19 @@ class Models extends Model
  		 *
  		 * @var array string
  		 */
- 		$this->totals['sql'] = ', ';
- 		foreach ($this->totals['t'] as $key => $value) {
- 			$this->totals['sql'] .= $value[0] . '(`' . $value[1] . '`)';
+
+ 		if(!empty($this->totals))
+ 		{
+ 			$this->totals['sql'] = ', ';
+ 			foreach ($this->totals['t'] as $key => $value) {
+ 				$this->totals['sql'] .= $value[0] . '(`' . $value[1] . '`)';
+ 			}
+ 			$this->totals['sql'] = $this->securityClean($this->totals['sql']);
  		}
- 		$this->totals['sql'] = $this->securityClean($this->totals['sql']);
+ 		else
+ 		{
+ 			$this->totals['sql'] = '';
+ 		}
+
  	}
  }

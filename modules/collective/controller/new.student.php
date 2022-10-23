@@ -2,7 +2,7 @@
 
 /**
  *-------------------------------------------------------/
- * @file        modules\students\controller\new.student.php     \
+ * @file        modules\collective\controller\new.student.php     \
  * @package     One V                                     \
  * @author      Gilmer <gilmerfranko@hotmail.com>        |
  * @copyright   (c) 2020 Gilmer Franco                  /
@@ -36,7 +36,7 @@ if(isset($_GET['new-student']))
 		'address'     => $_POST['address'],
 		'status'      => 1,
 	);
-	loadClass('students/student')->newStudent($data);
+	loadClass('students/collective')->newStudent($data);
 }
 
 $students = array(

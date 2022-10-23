@@ -47,115 +47,121 @@
 	<script src="<?php echo $config['base_url'] ?>/static/sceditor/minified/icons/monocons.js"></script>
 	<script src="<?php echo $config['base_url'] ?>/static/sceditor/minified/formats/bbcode.js"></script>
 	<!-- BBCodes personalizados SCEditor
-	<script src="<?php echo $config['base_url'] ?>/static/sceditor/minified/sceditor.min.js"></script>
-	<title><?php echo isset($page['name']) ? $page['name'] : ucfirst($sModule) . ' - ' . $config['script_name'];?></title>
+		<script src="<?php echo $config['base_url'] ?>/static/sceditor/minified/sceditor.min.js"></script>-->
+		<title><?php echo isset($page['name']) ? $page['name'] : ucfirst($sModule) . ' - ' . $config['script_name'];?></title>
 
-	<!--Import Google Icon Font-->
+		<!--Import Google Icon Font-->
 
-	<link href="<?php echo $config['base_url'] ?>/static/css/materialize-icons.css" rel="stylesheet">
+		<link href="<?php echo $config['base_url'] ?>/static/css/materialize-icons.css" rel="stylesheet">
 
-	<!--Import materialize.css-->
+		<!--Import materialize.css-->
 
-	<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/materialize.min.css"  media="screen,projection"/>
 
-	<!--Import custom.css-->
+		<!--Import custom.css-->
 
-	<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/custom.css?r=<?php echo time(); ?>" />
+		<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/custom.css?r=<?php echo time(); ?>" />
 
-	<!--Import night.css-->
+		<!--Import night.css-->
 
-	<!--<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/night.css?<?php echo time() ?>" />-->
+		<!--<link type="text/css" rel="stylesheet" href="<?php echo $config['base_url']; ?>/static/css/night.css?<?php echo time() ?>" />-->
 
-	<!-- Import SCEditor -->
-	<link rel="stylesheet" href="<?php echo $config['base_url'] ?>/static/sceditor/minified/themes/defaultdark.min.css" id="theme-style" />
+		<!-- Import SCEditor -->
+		<link rel="stylesheet" href="<?php echo $config['base_url'] ?>/static/sceditor/minified/themes/defaultdark.min.css" id="theme-style" />
 
-	<!--Sitio optimizado para moviles-->
+		<!--Sitio optimizado para moviles-->
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-	<!-- Favicon -->
+		<!-- Favicon -->
 
-	<link rel="shortcut icon" href="<?php echo $config['base_url']; ?>/favicon.png">
+		<link rel="shortcut icon" href="<?php echo $config['base_url']; ?>/favicon.png">
 
-	<script>
+		<script>
 
-		var global={
+			var global={
 
-			url:  '<?php echo $config['base_url']; ?>',
+				url:  '<?php echo $config['base_url']; ?>',
 
-			page: '<?php echo $page['name']; ?>',
+				page: '<?php echo $page['name']; ?>',
 
-			page_c: '<?php echo isset($page['code']) ? $page['code'] : $sSection; ?>',
+				page_c: '<?php echo isset($page['code']) ? $page['code'] : $sSection; ?>',
 
-			page_n: '<?php echo $page['number']; ?>',
+				page_n: '<?php echo $page['number']; ?>',
 
-			images: '<?php echo $config['images_url']; ?>'
+				images: '<?php echo $config['images_url']; ?>'
 
-		};
+			};
 
-		var member={
+			var member={
 
-			id: '<?php echo $session->memberData['member_id']; ?>',
+				id: '<?php echo $session->memberData['member_id']; ?>',
 
-			name: '<?php echo $session->memberData['name']; ?>',
+				name: '<?php echo $session->memberData['name']; ?>',
 
-			group: '<?php echo $session->memberData['group_id']; ?>',
+				group: '<?php echo $session->memberData['group_id']; ?>',
 
-			platform: '<?php echo $session->platform; ?>',
+				platform: '<?php echo $session->platform; ?>',
 
-		};
+			};
 
-	</script>
+		</script>
 
-	<?php if($session->platform == 'android' || $session->platform == 'app') { ?>
+		<?php if($session->platform == 'android' || $session->platform == 'app') { ?>
 
-		<style>
+			<style>
 
-			nav a.left,
+				nav a.left,
 
-			nav a.right {
+				nav a.right {
 
-				width: 16.6666666667%;
+					width: 16.6666666667%;
 
-			}
+				}
 
-		</style>
+			</style>
 
-	<?php } ?>
+		<?php } ?>
 
-</head>
+	</head>
 
-<body>
+	<body>
 
-	<!-- mostrar preloader solo si no se esta en modo debug -->
-	<?php if($config['debug_mode'] == 0) { ?>
-		<div class="preloader-background">
+		<!-- mostrar preloader solo si no se esta en modo debug -->
+		<?php if($config['debug_mode'] == 0) { ?>
+			<div class="preloader-background">
 
-			<div class="preloader-wrapper big active">
+				<div class="preloader-wrapper big active">
 
-				<div class="spinner-layer spinner-blue-only">
+					<div class="spinner-layer spinner-blue-only">
 
-					<div class="circle-clipper left">
+						<div class="circle-clipper left">
 
-						<div class="circle"></div>
+							<div class="circle"></div>
 
-					</div>
+						</div>
 
-					<div class="gap-patch">
+						<div class="gap-patch">
 
-						<div class="circle"></div>
+							<div class="circle"></div>
 
-					</div>
+						</div>
 
-					<div class="circle-clipper right">
+						<div class="circle-clipper right">
 
-						<div class="circle"></div>
+							<div class="circle"></div>
+
+						</div>
 
 					</div>
 
 				</div>
 
 			</div>
+		<?php } ?>
 
-		</div>
-	<?php } ?>
+		<?php
+
+		require Core::view('sidenav', 'core');
+
+		?>

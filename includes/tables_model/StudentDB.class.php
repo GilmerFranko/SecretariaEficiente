@@ -20,7 +20,7 @@ class MemberDB extends Models
 	public function __construct()
 	{
 		parent::__construct();
-		$this->set_table("students")
+		$this->set_table("students");
 	}
 
 

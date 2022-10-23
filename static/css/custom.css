@@ -824,3 +824,10 @@ nav .brand-logo.playstore {
     blockquote{
       border-left: 5px solid orange !important;
     }
+
+    .form-group{
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }

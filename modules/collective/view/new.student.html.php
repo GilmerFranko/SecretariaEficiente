@@ -9,7 +9,7 @@
 	<blockquote class="flow-text">Registra un nuevo estudiante</strong></blockquote>
 	<div class="row">
 		<div class="col l12">
-			<form action="<?php echo $extra->generateUrl('students', 'new.student', NULL, array('new-student' => true)); ?>" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+			<form action="<?php echo $extra->generateUrl('collective', 'new.student', NULL, array('new-student' => true)); ?>" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
 				<!-- Cedula -->
 				<div class="col l6 form-group">
@@ -105,7 +105,7 @@
 
 				<!-- Estado -->
 				<div class="col l6 form-group">
-					<label for="state" class="	 control-label">
+					<label for="state" class="control-label">
 						Estado
 					</label>
 					<div class="">
@@ -271,15 +271,6 @@
 			</form>
 		</div>
 	</div>
-
-	<style type="text/css">
-		.form-group{
-			height: 100px;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
-	</style>
 
 	<script type="text/javascript">
 		$( ".select2" ).select2();

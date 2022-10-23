@@ -41,12 +41,16 @@ class Extra extends Model
   public function getToast($messages = array())
   {
   	$messages = !empty($messages) ? $messages : (isset($_SESSION['message']) ? $_SESSION['message'] : '');
-    var_dump($messages);
-    if(!empty($messages)){
+
+    if(!empty($messages))
+    {
       $html = '<script>window.onload = function() {';
-      foreach ($messages as $key => $msg) {
-       if(!empty($msg[0])){
-        $html .= "M.toast({html: '".$msg[0][0]."'}); ";
+
+      foreach ($messages as $key => $msg)
+      {
+       if(!empty($msg[0]))
+       {
+        $html .= ("M.toast({html: '".$msg[0][0]."'}); ");
       }
     }
     $html .= '};</script>';

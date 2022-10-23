@@ -14,40 +14,30 @@
  *
 */
 ?>
-<ul id="user-menu" class="sidenav<?php if($sModule == 'admin' || $sModule == 'mod') { echo ' sidenav-fixed'; } ?>">
-  <!-- MENU DE USUARIO O VISITANTE -->
-  <li class="sidenav-header blue-grey darken-4">
-  </li>
-  <li>
-    <ul>
-      
-       <!-- IDIOMAS -->
-  <div class="row">
-      <div class="input-field col s12">
-        <select class="browser-default" onchange="doGTranslate(this);">
-          <option value="">Idioma / Language</option>
-          <option value="en|en">English</option>
-          <option value="en|fr">French</option>
-          <option value="en|it">Italian</option>
-          <option value="en|pt">Portuguese</option>
-          <option value="en|es">Espa&ntilde;ol</option>
-        </select>
-      </div>
+
+<ul id="slide-out" class="sidenav">
+  <li><div class="user-view">
+    <div class="background">
+      <img src="images/office.jpg">
     </div>
-  <!-- ./IDIOMAS -->
-  
+    <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+    <a href="#name"><span class="white-text name">John Doe</span></a>
+    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+  </div></li>
+  <li><a href="#!"><i class="material-icons">home</i>Principal</a></li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
       <li>
-        <a class="waves-effect waves-blue" href="#!">
-        <i class="material-icons">attach_money</i>
-        </a>
+        <a class="collapsible-header">Colectivo<i class="material-icons">arrow_drop_down</i></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#!">Estudiantes</a></li>
+            <li><a href="#!">Profesores</a></li>
+            <li><a href="#!">Tutores</a></li>
+          </ul>
+        </div>
       </li>
-      
-      <?php if($session->platform == 'app') { ?>
-	<span> <li>
-        <a class="waves-effect waves-blue" href="https://natural-worlds.com/">
-        <i class="material-icons">call_missed</i>Volver al inicio
-        </a>
-      </li><?php } ?>
     </ul>
   </li>
+
 </ul>

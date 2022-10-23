@@ -13,9 +13,9 @@
  * NOTA: archivo posiblemente particionado en un futuro
  */
 
-/** OCULTAR NAVEGACIÓN AL BAJAR, MOSTRAR AL SUBIR **/
-var prevPosition = window.pageYOffset;
-$(window).scroll(function() {
+ /** OCULTAR NAVEGACIÓN AL BAJAR, MOSTRAR AL SUBIR **/
+ var prevPosition = window.pageYOffset;
+ $(window).scroll(function() {
   var nowPosition = window.pageYOffset;
   if (prevPosition > nowPosition) {
     $('.nav-fixed').css('top', '0');
@@ -25,9 +25,9 @@ $(window).scroll(function() {
   prevPosition = nowPosition;
 });
 
-/** INICIALIZAR TODOS LOS MODALES MATERIALIZE */
-(function ($) {
-    $(function () {
+ /** INICIALIZAR TODOS LOS MODALES MATERIALIZE */
+ (function ($) {
+  $(function () {
 
         //initialize all modals
         $('.modal').modal();
@@ -76,13 +76,13 @@ var news = getCookie('news').split(',');
             });
         }
     }
-}*/
+  }*/
 
 var stop = false; // PARAR CARGA DE NOTICIAS
 
 /** EJECUTAR CUANDO EL DOCUMENTO ESTÉ LISTO **/
 //document.addEventListener('DOMContentLoaded', function() {
-$(document).ready(function() {
+  $(document).ready(function() {
 
     // EVITAR TRADUCIR ICONOS, NOMBRES, PAGINACIÓN, ETC.
     $('i.material-icons, .shout-like, .shout-comment, .pagination').addClass('notranslate');
@@ -97,21 +97,21 @@ $(document).ready(function() {
             idNew = idNew.substring(idNew.length - 1, idNew.length);
             $('.new.carousel.carousel-slider').css('height', ($('#textNew' + idNew).height() + 20));
         },
-    });*/
+      });*/
 
     // REAJUSTAR TAMAÑO NOTICIA AL HACER CLIC (Por si acaso)
     /*$('.new .carousel-item').click(function() {
         $('.new.carousel.carousel-slider').css('height', ($($(this).attr('href')).height() + 20));
-    });*/
+      });*/
 
     // OCULTAR LOADER
     $('.preloader-background').delay(1).fadeOut('slow');
     $('.preloader-wrapper')
-        .delay(1)
-        .fadeOut();
+    .delay(1)
+    .fadeOut();
 
     $('.autodisabled').click(function() {
-        $(this).addClass('disabled');
+      $(this).addClass('disabled');
     });
 
     // INICIAR SIDENAV
@@ -121,18 +121,20 @@ $(document).ready(function() {
         closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
         draggable: true, // Choose whether you can drag to open on touch screens
         preventScrolling: true,
-    });
+      });
+
+
     // DROPDOWN (BOTON DESPLEGABLE)
     $('.dropdown-trigger').dropdown({
         //autoTrigger: true,
         coverTrigger: false,
         //hover: true,
-    });
+      });
     // BOTON FLOTANTE
     $('.fixed-action-btn').floatingActionButton();
     // COLLAPSIBLE
     $('.collapsible').collapsible({
-        accordion: true,
+      accordion: true,
     });
     // MATERIALBOX (MOSTRAR IMAGEN PANTALLA COMPLETA)
     $('.materialboxed').materialbox();
@@ -142,8 +144,8 @@ $(document).ready(function() {
      *
      */
 
-    if (global.page_c == 'homeMember') {
-        $('.carousel').carousel({
+     if (global.page_c == 'homeMember') {
+      $('.carousel').carousel({
         fullWidth: true,
         numVisible: 4,
         //indicators: true
@@ -152,26 +154,26 @@ $(document).ready(function() {
             //idNew = idNew.toString();
             //idNew = idNew.substring(idNew.length - 1, idNew.length);
             //$('.new.carousel.carousel-slider').css('height', ($('#textNew' + idNew).height() + 20));
-        },
-    });
+          },
+        });
     }
 
     // REGISTRO
 
     if (global.page_c == 'membersRegister') {
-        $('.modal').modal();
-        $('#btnModalAge').click();
+      $('.modal').modal();
+      $('#btnModalAge').click();
 
-        $('#btnAge').click(function() {
-            if($('#indeterminate-checkbox').prop('checked') == false )
-            {
-                window.location.href = 'https://www.google.com/search?q=dibujos';
-            }
-        });
+      $('#btnAge').click(function() {
+        if($('#indeterminate-checkbox').prop('checked') == false )
+        {
+          window.location.href = 'https://www.google.com/search?q=dibujos';
+        }
+      });
     }
 
     if (global.page_c == 'memberLogin') {
-        $('.modal').modal();
+      $('.modal').modal();
     }
 
     /**
@@ -180,7 +182,7 @@ $(document).ready(function() {
      *
      */
 
-});
+   });
 
 
 /**
@@ -191,20 +193,20 @@ $(document).ready(function() {
 
 // IR HACIA URL
 function goToUrl(url) {
-    window.location.href = url;
+  window.location.href = url;
 }
 
 
 // OBTENER COOKIES
 function getCookie(key = 'uuid') {
-    var name = key + '=';
-    var sep = document.cookie.split(';');
-    for (var i = 0; i < sep.length; i++) {
-        var k = sep[i];
-        while (k.charAt(0) == ' ') k = k.substring(1);
-        if (k.indexOf(name) == 0) return k.substring(name.length, k.length);
-    }
-    return '';
+  var name = key + '=';
+  var sep = document.cookie.split(';');
+  for (var i = 0; i < sep.length; i++) {
+    var k = sep[i];
+    while (k.charAt(0) == ' ') k = k.substring(1);
+    if (k.indexOf(name) == 0) return k.substring(name.length, k.length);
+  }
+  return '';
 }
 
 // GENERAR ENLACE DE DESCARGA DIRECTA Y COPIARLO AL NAVEGADOR
@@ -214,10 +216,10 @@ function getDirectLink() {
     var inputTemp = $('<input id="directLink" type="text">').val(link).appendTo('#modalBuy').select();
     var copied = document.execCommand('copy');
     if (copied == true) {
-        swal.fire('','Enlace copiado al portapapeles','');
+      swal.fire('','Enlace copiado al portapapeles','');
     }
     $('#directLink').remove();
-}
+  }
 
 // INICIA EL SCRAPPING
 function initScrap(index){
@@ -305,40 +307,40 @@ function generateSCEditor(tag = "")
   fetch(global.url+'/static/sceditor/bbcode.objects.json')
   .then(response => {
    return response.json();
-  })
+ })
   .then(bbcodes => {
     console.log(bbcodes);
     bb = {
-    styles: {
+      styles: {
         "stylename": null,
         "another-style-name": ["value1", "value2"]
-    },
-    tags: {
+      },
+      tags: {
         "tag": '<br>',
         "another-tag": {
-            "attribute1": '<br>',
-            "attribute2": ["value1", "value2"]
+          "attribute1": '<br>',
+          "attribute2": ["value1", "value2"]
         }
-    },
-    isSelfClosing: true,
-    isInline: true,
-    isHtmlInline: undefined,
-    allowedChildren: null,
-    allowsEmpty: false,
-    excludeClosing: false,
-    skipLastLineBreak: false,
-    strictMatch: false,
+      },
+      isSelfClosing: true,
+      isInline: true,
+      isHtmlInline: undefined,
+      allowedChildren: null,
+      allowsEmpty: false,
+      excludeClosing: false,
+      skipLastLineBreak: false,
+      strictMatch: false,
 
-    breakBefore: false,
-    breakStart: false,
-    breakEnd: false,
-    breakAfter: false,
+      breakBefore: false,
+      breakStart: false,
+      breakEnd: false,
+      breakAfter: false,
 
-    format: 'string|function',
-    html: 'string|function',
+      format: 'string|function',
+      html: 'string|function',
 
-    quoteType: sceditor.BBCodeParser.QuoteType.auto
-}
+      quoteType: sceditor.BBCodeParser.QuoteType.auto
+    }
     sceditor.formats.bbcode.set("br",bb)
     var textarea = document.getElementById(tag);
     sceditor.create(textarea, {

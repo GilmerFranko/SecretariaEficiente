@@ -33,9 +33,10 @@
               <h5><a class="" target="_blank" href=""/><?php echo $config['script_name']; ?></a></h5>
             </div>
           </div>
-          <ul class="right ">
 
+          <ul class="right ">
             <li><a class="" href="<?php echo Core::model('extra', 'core')->generateUrl('posts', 'list'); ?>"><i class="material-icons">home</i></a></li>
+
 
           <!--<li><a onclick="getNotifications(); return false;" href=""><i class="material-icons notranslate">notifications_none</i></a></li>
           <li><a href="" title="Buscar personas"><i class="material-icons notranslate">search</i></a></li>
@@ -48,6 +49,9 @@
             </a>
           </li>
         </ul>
+        <div class="left">
+          <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large" ><i class="material-icons">menu</i></a>
+        </div>
       </div>
     </div>
   </nav>
