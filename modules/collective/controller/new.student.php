@@ -36,7 +36,7 @@ if(isset($_GET['new-student']))
 		'address'     => $_POST['address'],
 		'status'      => 1,
 	);
-	loadClass('students/collective')->newStudent($data);
+	loadClass('collective/student')->newStudent($data);
 }
 
 $students = array(

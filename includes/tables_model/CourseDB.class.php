@@ -14,5 +14,18 @@ class CourseDB extends Models
 		$this->set_table("courses");
 	}
 
+	public function getCourseName()
+	{
+		$select = $this->db->query('SELECT `name` FROM `courses`');
+
+		if($select and $select->num_rows > 0)
+		{
+			$row = '';
+			while ($class = $select->fetch_assoc()) {
+				$row .= '\''.$class['name'].'\': null,';
+			}
+			return $row;
+		}
+	}
 
 }

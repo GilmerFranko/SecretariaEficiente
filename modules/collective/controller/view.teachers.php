@@ -1,21 +1,20 @@
 <?php defined('SAADMIN') || exit;
 
 /**
- *-------------------------------------------------------
- * @file        modules\collective\controller\new.student.php
- * @package     One V
- * @author      Gilmer <gilmerfranko@hotmail.com>
- * @copyright   (c) 2020 Gilmer Franco
- *
- *=======================================================
- *
- * @Description Controlador principal para agregar nuevos docentes
- *
- *
+ * @Description Controlador principal para ver matriculas
  */
-$page['name'] = 'Profesores';
-$page['code'] = 'view.teachers';
+$page['name'] = 'Matriculas';
+$page['code'] = 'view.enrollment';
 
 
-$teachers = db('teacher')->getLastRow(10);
 
+if(isset($_POST['ajax']))
+{
+
+}
+else
+{
+	$periods = db('period')->getPeriods();
+	$courses = db('course')->getCourseName();
+
+}

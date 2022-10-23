@@ -88,13 +88,13 @@ class Models extends Model
 		/** HACE FALTA AGREGAR UNA MEDIDA DE SEUGURIDAD PARA INYECCIONES SQL */
 		$estruct = array_keys($data);$estruct = implode($estruct, '`,`');
 		$values  = array_values($data); $values = implode($values, '\',\'');
-		$sql     =  ('INSERT INTO '.$this->table.' (`'.$estruct.'`) VALUES (\''.$values.'\')');
+		$sql     =  ('INSERT INTO '.$this->table.' (`'.$estruct.'`, `created`) VALUES (\''.$values.'\', UNIX_TIMESTAMP())');
 
 		if($this->db->query($sql))
 		{
 			return true;
 		}
-		return error_log($sql);
+		return false;
 	}
 
 	/**
@@ -224,7 +224,7 @@ class Models extends Model
 
   	/* Construye la consulta */
   	$this->sentence = $this->select . SPACE . $this->columns . SPACE . $this->totals['sql'] . SPACE . $this->from . SPACE . $this->table . SPACE . $this->where['sql'] . SPACE . $this->orderBy . SPACE . $this->limit;
-  	//echo 'Sentencia: <strong style="color:blue">'.$this->sentence.'</strong>';
+  	error_log('Sentencia: <strong style="color:blue">'.$this->sentence.'</strong>');
   	/* Ejecuta la consulta */
   	$query = $this->db->query($this->sentence);
   	if ($query == true)

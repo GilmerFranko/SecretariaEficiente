@@ -31,8 +31,8 @@
         <a class="collapsible-header">Colectivo<i class="material-icons">arrow_drop_down</i></a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="#!">Estudiantes</a></li>
-            <li><a href="#!">Profesores</a></li>
+            <li><a href="<?php echo $extra->generateUrl('collective', 'view.students') ?>">Estudiantes</a></li>
+            <li><a href="<?php echo $extra->generateUrl('collective', 'view.teachers') ?>">Estudiantes</a>">Profesores</a></li>
             <li><a href="#!">Tutores</a></li>
           </ul>
         </div>

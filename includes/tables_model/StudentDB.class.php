@@ -15,7 +15,7 @@
 */
 /** Como esta actualmente se requeriran/incluiran todos los archivos encargador de administrar los modulos y por lo tanto puede crear lentitud al cargar tantos archivos, se podria cargar solo el archivo necesario como en laravel con la instrucción "use";*/
 
-class MemberDB extends Models
+class StudentDB extends Models
 {
 	public function __construct()
 	{

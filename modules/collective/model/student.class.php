@@ -28,7 +28,7 @@ class Student extends Model
 	public function newStudent($data = Array())
 	{
 
-		$insert = $this->db->query('INSERT INTO `estudiante`(`dni`, `passport`, `names`, `surnames`, `email`, `num_phone`, `gender`, `birth`, `birth_place`, `state`, `country`, `estatura`, `tutor_id`, `address`, `date`, `status`) VALUES (
+		$insert = $this->db->query('INSERT INTO `students`(`dni`, `passport`, `names`, `surnames`, `email`, `num_phone`, `gender`, `birth`, `birth_place`, `state`, `country`, `estatura`, `tutor_id`, `address`, `date`, `status`) VALUES (
 			\''. $this->db->real_escape_string($data['dni']) .'\',
 			\''. $this->db->real_escape_string($data['passport']) .'\',
 			\''. $this->db->real_escape_string($data['names']) .'\',
@@ -52,5 +52,19 @@ class Student extends Model
 			return true;
 		}
 		return false;
+	}
+
+	public function getStudents()
+	{
+		$select = $this->db->query('SELECT * FROM `students`');
+
+		if($select and $select->num_rows > 0)
+		{
+			$row = [];
+			while ($students = $select->fetch_assoc()) {
+				$row[] = $students;
+			}
+			return $row;
+		}
 	}
 }
