@@ -4,24 +4,20 @@
  *-------------------------------------------------------/
  * @file        model.class.php                          \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo se encarga de incluir las clases que se utilizan en todos los modelos/clases
  *
  *
 */
 
-class Model 
+class Model
 {
     // Base de Datos 									(opc)
     public $db;
-    
+
     // Configuración 									(opc)
     public $config;
-    
+
     // Sesión actual 									(opc)
     public $session;
 
@@ -36,22 +32,22 @@ class Model
 
     // Modulo
     public static $module = 'core';
-    
+
     // Constructor
     function __construct()
     {
         /* Archivo de configuración de la base de datos */
         require BG_CONF . 'config.db.php';
-        
+
         /* Creamos la conexión */
         $this->db = new MySQLi($db['hostname'], $db['username'], $db['userpass'], $db['database']);
-        
+
         /* Si hay algún error, lo mostramos */
-        if ($this->db->connect_errno) 
+        if ($this->db->connect_errno)
         {
             die('Error al conectar: ' . $this->db->connect_error);
         }
-        
+
         /* Se obtiene y establece la configuración */
         $query = $this->db->query('SELECT * FROM `site_configuration` ORDER BY `id` DESC LIMIT 1');
         //

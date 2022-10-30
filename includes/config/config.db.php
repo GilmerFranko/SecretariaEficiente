@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        config.db.php                            \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Parámetros de conexión para la base de datos
  *
  *

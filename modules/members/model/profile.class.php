@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\members\model\profile.class.php  \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo se encarga de gestionar lo relacionado al perfil
  *
  *
@@ -16,16 +12,16 @@
 
 class Profile extends Model
 {
-    
+
     public function __construct()
     {
         parent::__construct();
         $this->session = Core::model('session', 'core');
     }
-    
+
     /**
-     * Obtiene información del perfil del usuario
-     * 
+     * Obtiene informaciÃ³n del perfil del usuario
+     *
      * @param string $username
      * @return array/boolean
      */
@@ -46,11 +42,11 @@ class Profile extends Model
         //
         return false;
     }
-    
-    
+
+
     /**
-     * Retorna la edad del usuario en número
-     * 
+     * Retorna la edad del usuario en nÃºmero
+     *
      * @param integer $age
      * @return array
      */
@@ -66,7 +62,7 @@ class Profile extends Model
 
     /**
      * Extrae los seguidores/bloqueados o a quien sigue o tiene bloquedao a un usuario
-     * 
+     *
      * @param integer $member_id
      * @param integer $member_to
      * @param integer $kind (0 = seguidores, 1 = siguiendo)
@@ -113,7 +109,7 @@ class Profile extends Model
 
     /**
      * Seguir o bloquear a un usuario
-     * 
+     *
      * @param integer $member_from
      * @param integer $member_to
      * @return boolean
@@ -134,7 +130,7 @@ class Profile extends Model
 
     /**
      * Dejar de seguir o desbloquear a un usuario
-     * 
+     *
      * @param integer $member_from
      * @param integer $member_to
      * @return boolean
@@ -155,7 +151,7 @@ class Profile extends Model
 
     /**
      * Comprueba si existe bloqueo entre dos usuarios
-     * 
+     *
      * @param integer $member1
      * @param integer $member2
      * @return boolean

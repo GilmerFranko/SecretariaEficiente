@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\global\view\register.html.php    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Vista de la página de registro
  *
  *

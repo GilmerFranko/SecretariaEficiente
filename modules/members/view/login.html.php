@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\members\view\login.html.php      \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Vista de la página principal
  *
  *
@@ -23,8 +19,8 @@ require Core::view('head', 'core');
 
 <!-- Body -->
 <section style="margin-top: 50px;">
-  <div class="row">
-    <form action="<?php echo Core::model('extra', 'core')->generateUrl('members', 'login'); ?>" method="post">
+  <div class="row" style="max-width: 500px">
+    <form action="<?php echo $extra->generateUrl('members', 'login'); ?>" method="post">
       <div class="row">
         <div class="input-field col s12">
           <input id="email" name="email" type="text" class="validate" value="<?php echo Core::model('extra', 'core')->getInputValue('email'); ?>">

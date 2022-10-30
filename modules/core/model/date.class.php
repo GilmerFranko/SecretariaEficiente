@@ -4,11 +4,7 @@ defined('SAADMIN') || exit;
  *-------------------------------------------------------/
  * @file        includes\libray\date.class.php           \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Esta clase formatea las fechas
  *
  *

@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\site\controller\contact.php      \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Controlador de sección "Contacto" del sitio
+
+ * @Description Controlador de secciÃ³n "Contacto" del sitio
  *
  *
  */
@@ -50,7 +46,7 @@ if(isset($_POST['contact']))
 	{
 		$contact['title'] = Core::model('extra', 'core')->cleanVar($_POST['title']);
 		$contact['content'] = Core::model('extra', 'core')->cleanVar($_POST['content']);
-		
+
 		// REGISTRAR CONTACTO SIN AVISAR POR EMAIL
 		$contact = Core::model('site', 'site')->newContact($contact, false);
 
@@ -80,5 +76,5 @@ if(isset($_POST['contact']))
 			Core::model('extra', 'core')->generateUrl('shouts', 'list', NULL, NULL, true);
 		}
 	}
-	
+
 }

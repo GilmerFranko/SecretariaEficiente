@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\error\4503.php                    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Este archivo mostrar· un error 503 (Temporalmente no disponible)
+
+ * @Description Este archivo mostrar√° un error 503 (Temporalmente no disponible)
  *
  *
 */
@@ -29,7 +25,7 @@
 <section>
 	<div class="container">
         <h1 style="text-align: center; padding: 21.1% 0 32% 0;"><?php echo $message; ?></h1>
-    </div>  
+    </div>
 </section>
 <!-- / Body -->
 

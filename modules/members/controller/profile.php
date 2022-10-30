@@ -4,18 +4,14 @@
  *-------------------------------------------------------/
  * @file        modules\members\controller\profile.php   \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Controlador principal del perfil
  *
  *
  */
 if( isset($_GET['user']) && ctype_digit($_GET['user']) )
 {
-    // SE ASOCIA LA INFORMACI”N DEL PERFIL
+    // SE ASOCIA LA INFORMACI√ìN DEL PERFIL
     $memberData = Core::model('profile', 'members')->getMemberProfile($_GET['user']);
     //
     if( is_array($memberData) )
@@ -24,7 +20,7 @@ if( isset($_GET['user']) && ctype_digit($_GET['user']) )
             if(Core::model('profile', 'members')->checkBlock($session->memberData['member_id'], $memberData['member_id']) === false)
             {
 
-                // ESTABLECE EL TÕTULO DE LA P¡GINA
+                // ESTABLECE EL T√çTULO DE LA P√ÅGINA
                 $page['name'] = 'Perfil de ' . $memberData['name'];
                 $page['code'] = 'memberProfile';
             }

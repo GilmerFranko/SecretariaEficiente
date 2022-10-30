@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\members\controller\coins.php     \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Controlador principal de los creditos
  *
  *

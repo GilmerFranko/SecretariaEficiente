@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\error\403.php                    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Este archivo mostrar· un error de acceso prohibido (Forbidden)
+
+ * @Description Este archivo mostrar√° un error de acceso prohibido (Forbidden)
  *
  *
 */

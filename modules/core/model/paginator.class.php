@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\core\model\paginator.class.php   \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo incluye lo relacionado a la paginación
  *
  *
@@ -16,10 +12,10 @@
 
 class Paginator
 {
-    
+
 	/**
      * getPages($total, $limit)
-     * 
+     *
      * @description Información extra de paginación
 	*/
 	function getPages($total, $limit, $section = ''){
@@ -42,7 +38,7 @@ class Paginator
 		// RETORNAMOS
 		return $pages;
 	}
-    
+
     /**/
 	// Constructs a page list.
 	// $pageindex = constructPageIndex($scripturl . '?board=' . $board, $_REQUEST['start'], $num_messages, $maxindex, true);
@@ -51,7 +47,7 @@ class Paginator
         // INFORMACIÓN DE PÁGINAS
         $pages = $this->getPages($max_value, $num_per_page, $base[1]);
         $pages['total'] = $pages['total'] == '0' ? $pages['total'] + 1 : $pages['total'];
-        
+
         // Definir URL de Base
         /*$base_url = explode('&page=',$base_url);
         $base_url = $base_url[0];
@@ -60,22 +56,22 @@ class Paginator
         $base[3] = isset($base[3]) ? $base[3] : null;
         $base[4] = isset($base[4]) && is_array($base[4]) ? $base[4] : null;
         $base_url = Core::model('extra', 'core')->generateUrl($base[0], $base[1], $base[2], $base[3], $base[4]);
-        
+
         // Código del OnClick
         $pages['onclick'] = $this->getOnclick($base);
-        
+
         // REDIRIGE SI LA PÁGINA INTRODUCIDA ES MÁS GRANDE DE LO PERMITIDO
         if($pages['current'] > $pages['total'] || (isset($_GET['page']) && $_GET['page'] == '0'))
         {
             Core::model('extra', 'core')->redirectTo($base_url . '&page=' . $pages['total']);
         }
-        
+
         // Página actual
         $start = $pages['current'];
-        
+
         // PÁGINA ACTUAL POR CANTIDAD DE RESULTADOS POR PÁGINA
         $start = $start * $num_per_page;
-        
+
 				// Save whether $start was less than 0 or not.
 				$start_invalid = $start < 0;
 
@@ -110,9 +106,9 @@ class Paginator
 				$tmpStart = $start - $num_per_page * $nCont;
                     if($tmpStart > 0) $pageindex.= str_replace('{page}', $tmpStart / $num_per_page, $base_link);
 				}
-	
+
 				// Show the current page. (1 ... 6 7 >[8]< 9 10 ... 15)
-            
+
 				if (!$start_invalid && $pages['current'] == ($start / $num_per_page))
 					$pageindex .= '<li class="active"><a href="#">' . ($start / $num_per_page) . '</a></li> ';
 				else
@@ -127,7 +123,7 @@ class Paginator
 						$tmpStart = $start + $num_per_page * $nCont;
 						$pageindex .= str_replace('{page}', $tmpStart / $num_per_page, $base_link);
 					}
-	
+
 					// Show the '...' part near the end. (1 ... 6 7 [8] 9 10 >...< 15)
 					if ($start + $num_per_page * ($PageContiguous + 1) < $tmpMaxPages)
 						$pageindex .= '<li class="disabled"><a href="#">...</a></li>';
@@ -147,23 +143,23 @@ class Paginator
 		                $pages['left'] = '<li class="waves-effect"><a href="' . $base_url . '&page=1" onclick="'.str_replace('{page_n}', '1', $pages['onclick']).'"><i class="material-icons">first_page</i></a></li>
 		                                  <li><a href="' . $base_url . '&page='. $pages['prev'] .'" onclick="'.str_replace('{page_n}', $pages['prev'], $pages['onclick']).'"><i class="material-icons">chevron_left</i></a></li>';
             }
-            
+
             // laterales derechos
             if($pages['next'] < $pages['total'])
             {
                 $pages['right'] .= '<li class="waves-effect"><a href="' . $base_url . '&page=' . $pages['next'] . '" onclick="'.str_replace('{page_n}', $pages['next'], $pages['onclick']).'"><i class="material-icons">chevron_right</i></a></li>
                                    <li class="waves-effect"><a href="' . $base_url . '&page=' . $pages['total'] .'" onclick="'.str_replace('{page_n}', $pages['total'], $pages['onclick']).'"><i class="material-icons">last_page</i></a></li>';
             }
-            
+
             // Paginador HTML
             $pages['paginator'] = '<div class="center-align"><ul class="pagination">'.$pages['left'].$pageindex.$pages['right'].'</ul></div>';
-	
+
 			return $pages;
 		}
-    
+
     function getOnclick($base = array())
     {
-        
+
         if($base[0] == 'admin')
         {
         	$base[2] = isset($base[2]) ? $base[2] : '';
@@ -191,7 +187,7 @@ class Paginator
         {
         	$onclick = '';
         }
-        
+
         return $onclick;
     }
 }

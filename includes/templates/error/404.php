@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\error\404.php                    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Este archivo mostrar· un error 404 (No encontrado)
+
+ * @Description Este archivo mostrar√° un error 404 (No encontrado)
  *
  *
 */
@@ -28,7 +24,7 @@
 <section>
 	<div class="container">
         <h1 style="text-align: center; padding: 21.1% 0 32% 0;"><?php echo $message; ?></h1>
-    </div>  
+    </div>
 </section>
 <!-- / Body -->
 

@@ -4,18 +4,14 @@
  *-------------------------------------------------------/
  * @file        modules\core\model\debug.class.php       \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo se encarga de gestionar la información sobre la depuración del software
  *
  *
 */
 
 class Debug extends Model {
-    
+
     /**
      * Generar informe
      */
@@ -28,7 +24,7 @@ class Debug extends Model {
             //
             //$qs = $this->db->query('SHOW STATUS WHERE `Variable_name` = \'Questions\'')->fetch_assoc();
             $qs = $this->db->query("SHOW STATUS WHERE `Variable_name` = 'Questions'")->fetch_assoc();
-            
+
             $nQueries = $qs['Value'];
             //
             //$sResult .= ' con ' . $nQueries . ' consultas';

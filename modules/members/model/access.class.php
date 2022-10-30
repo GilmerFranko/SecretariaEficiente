@@ -4,39 +4,35 @@
  *-------------------------------------------------------/
  * @file        modules\global\model\access.class.php    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Este modelo se encarga de gestionar la identificaciÛn o registro del usuario/visitante
+
+ * @Description Este modelo se encarga de gestionar la identificaci√≥n o registro del usuario/visitante
  *
  *
 */
 
 class Access extends Model
 {
-    
+
     public function __construct()
     {
         parent::__construct();
         $this->session = Core::model('session', 'core');
     }
-    
+
     /**
      * Identifica a un usuario
-     * 
+     *
      * @param int $member_id
      * @param string $uuid
      */
     function login($member_id = 0, $uuid = null)
     {
-        /* Generamos un identificador ˙nico de 28 car·cteres */
+        /* Generamos un identificador √∫nico de 28 car√°cteres */
         $uuid = empty($uuid) ? Core::model('extra', 'core')->generateUUID(28) : $uuid;
-        
-        /* Asociamos el identificador generado a la sesiÛn del usuario */
+
+        /* Asociamos el identificador generado a la sesi√≥n del usuario */
         $query = $this->db->query('UPDATE `members` SET `session` = \'' . $uuid . '\', `last_login` = UNIX_TIMESTAMP() WHERE `member_id` = \'' .$member_id . '\' LIMIT 1');
-        
+
         if($query == true)
         {
             /* Establecemos la cookie */
@@ -47,15 +43,15 @@ class Access extends Model
         //
         return false;
     }
-    
+
     /**
-     * Cierra la sesiÛn actual
+     * Cierra la sesi√≥n actual
      */
     function logout($member_id = 0)
     {
-        /* Eliminamos el identificador asociado a la sesiÛn del usuario */
+        /* Eliminamos el identificador asociado a la sesi√≥n del usuario */
         //$query = $this->db->query('UPDATE `members` SET `session` = \'\' WHERE `member_id` = \'' .$member_id . '\' LIMIT 1');
-        
+
         //if($query == true){
             /* Eliminamos la cookie */
             setcookie($this->config['cookie_name'], '', time() - 1, '/');
@@ -64,10 +60,10 @@ class Access extends Model
         //}
         //return false;
     }
-    
+
     /**
      * Registra a un usuario
-     * 
+     *
      * @param string $username
      * @param string $password
      * @param string $email
@@ -98,8 +94,8 @@ class Access extends Model
     }
 
     /**
-     * Actualiza la contraseÒa de PHPost a BellasGram
-     * 
+     * Actualiza la contrase√±a de PHPost a BellasGram
+     *
      * @param int $member
      * @param string $password
      * @return boolean
@@ -115,10 +111,10 @@ class Access extends Model
         //
         return false;
     }
-    
+
     /**
-     * Registra un recuperador de acceso, ya sea para confirmar la cuenta o para recuperar la contraseÒa
-     * 
+     * Registra un recuperador de acceso, ya sea para confirmar la cuenta o para recuperar la contrase√±a
+     *
      * @param integer $member_id
      * @param string  $email
      * @param integer $type
@@ -137,12 +133,12 @@ class Access extends Model
         //
         return false;
     }
-    
+
     /**
-     * Comprueba si el cÛdigo de recuperaciÛn es v·lido
-     * 
+     * Comprueba si el c√≥digo de recuperaci√≥n es v√°lido
+     *
      * @param string  $hash
-     * @param integer $type (2 = Validar cuenta, 1 = Restablecer contraseÒa)
+     * @param integer $type (2 = Validar cuenta, 1 = Restablecer contrase√±a)
      * @return boolean
      */
     function checkRecover($hash = '', $type = 0)
@@ -156,12 +152,12 @@ class Access extends Model
         //
         return false;
     }
-    
+
     /**
-     * Elimina un cÛdigo de validaciÛn
-     * 
+     * Elimina un c√≥digo de validaci√≥n
+     *
      * @param string  $hash
-     * @param integer $type (2 = Validar cuenta, 1 = Restablecer contraseÒa)
+     * @param integer $type (2 = Validar cuenta, 1 = Restablecer contrase√±a)
      * @return string/boolean
      */
     function deleteRecover($hash = '', $type = 0)
@@ -178,7 +174,7 @@ class Access extends Model
 
     /**
      * Elimina un usuario
-     * 
+     *
      * @param integer $member_id
      * @return boolean
      */
@@ -246,7 +242,7 @@ class Access extends Model
         $msg = 'Problema al eliminar usuario: <br/>';
         $msg .= implode('<br/>', $error);
 
-        // SI ALGO FALL”, NOTIFICAR AL ADMIN
+        // SI ALGO FALL√ì, NOTIFICAR AL ADMIN
         $this->db->query('INSERT INTO `members_notifications` (`to_member`, `from_member`, `not_key`, `content`, `sent_time`) VALUES (\'1\', \''.$member.'\', \'deleteAccount\', "'.$this->db->real_escape_string($msg).'", UNIX_TIMESTAMP()) ');
 
         // RETORNAR FALSE
@@ -254,8 +250,8 @@ class Access extends Model
     }
 
     /**
-     * Buscar un email mediante nombre de usuario y contraseÒa
-     * 
+     * Buscar un email mediante nombre de usuario y contrase√±a
+     *
      * @param string  $username
      * @param string  $password
      * @return string $email
@@ -278,5 +274,5 @@ class Access extends Model
         //
         return false;
     }
-    
+
 }

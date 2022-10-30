@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\core\model\extra.class.php       \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo incluye funciones variadas con utilización frecuente
  *
  *
@@ -43,14 +39,14 @@ class Images
         }
 
         //Crear un lienzo
-        $lienzo=imagecreatetruecolor($final_width,$final_height); 
+        $lienzo=imagecreatetruecolor($final_width,$final_height);
 
         //Copiar original en lienzo
         imagecopyresampled($lienzo,$original,0,0,0,0,$final_width, $final_height, $width, $height);
-         
+
         //Destruir la original
         imagedestroy($original);
-        
+
         //Crear la imagen y guardar en directorio upload/
         imagejpeg($lienzo, $destination, $quality);
 
@@ -59,8 +55,8 @@ class Images
 
     /**
      * Fuerza la descarga de un archivo
-     * 
-     * @param 
+     *
+     * @param
      * @return
      */
     public function download($file, $filename)

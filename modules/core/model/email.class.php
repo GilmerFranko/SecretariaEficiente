@@ -4,19 +4,15 @@
  *-------------------------------------------------------/
  * @file        modules\core\model\extra.class.php       \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo incluye funciones variadas con utilización frecuente
- * 
+ *
  * NOTA: ESTA CLASE NO ES UNICA; SE PARTICIONARÁ
 */
 
 class Email extends Model
 {
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -25,7 +21,7 @@ class Email extends Model
 
     /**
      * Envía un correo electrónico
-     * 
+     *
      * @param string $template
      * @param string $email
      * @param array  $params

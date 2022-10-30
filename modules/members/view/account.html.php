@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\members\view\account.html.php    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Vista de la configuración del usuario
+
+ * @Description Vista de la configuraciÃ³n del usuario
  *
  *
 */
@@ -63,12 +59,12 @@ require Core::view('head', 'core');
                         <?php include Core::view('account.blocks.area'); ?>
                     </div>
                 </div>
-                
+
                 <!-- BOTON DE PERFIL -->
                 <div class="card-action">
                     <a href="https://bellasgram.com/" class="waves-effect waves-light btn grey darken-2 w80"><i class="material-icons left">account_circle</i>Ver fotos xxx</a>
                 </div>
-                
+
                 <!-- BOTON DE PERFIL -->
                 <div class="card-action">
                     <a href="<?php echo Core::model('extra', 'core')->generateUrl('members', 'profile', NULL, array('user' => $session->memberData['member_id'])); ?>" class="waves-effect waves-light btn grey darken-2 w80"><i class="material-icons left">account_circle</i>Ver Perfil</a>

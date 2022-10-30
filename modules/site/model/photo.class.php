@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\site\model\photos.class.php        \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo se encarga de gestionar lo relacionado a las fotos del sitio
  *
  *
@@ -16,17 +12,17 @@
 
 class Photo extends Model
 {
-    
+
     public function __construct()
     {
         parent::__construct();
         $this->session = Core::model('session', 'core');
     }
-    
+
 
     /**
      * Obtiene una foto
-     * 
+     *
      * @param int $id
      * @return array $photo
      */

@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\core\model\extra.class.php       \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo incluye funciones variadas con utilización frecuente
  *
  * NOTA: ESTA CLASE NO ES UNICA; SE PARTICIONARÁ

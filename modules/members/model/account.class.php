@@ -4,28 +4,24 @@
  *-------------------------------------------------------/
  * @file        modules\members\model\account.class.php  \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Este modelo se encarga de gestionar la configuración de la cuenta
+
+ * @Description Este modelo se encarga de gestionar la configuraciÃ³n de la cuenta
  *
  *
 */
 
 class Account extends Model
 {
-    
+
     public function __construct()
     {
         parent::__construct();
         $this->session = Core::model('session', 'core');
     }
-    
+
     /**
-     * Actualiza un único campo del usuario
-     * 
+     * Actualiza un Ãºnico campo del usuario
+     *
      * @param mixed   $value
      * @param string  $column
      * @param integer $member_id
@@ -45,10 +41,10 @@ class Account extends Model
         //
         return false;
     }
-    
+
     /**
      * Actualiza las preferencias del perfil
-     * 
+     *
      * @param array   $values
      * @param integer $member_id
      * @return boolean
@@ -69,8 +65,8 @@ class Account extends Model
 
     /**
      * Generar Selector de zona horaria
-     * 
-     * @param string $selected (Selección predeterminada)
+     *
+     * @param string $selected (SelecciÃ³n predeterminada)
      * @return string / html
      */
     function getTimezones($selected = 'America/Los_Angeles')
@@ -92,7 +88,7 @@ class Account extends Model
 
     /**
      * Genera el enlace del avatar de un usuario
-     * 
+     *
      * @param mixed    $value
      * @param integer  $type
      * @return string
@@ -145,10 +141,10 @@ class Account extends Model
         //
         return $this->config['avatar_url'].'/default_' . mt_rand(1,3) . '.jpg';
     }
-    
+
     /**
      * Registra en la base de datos el avatar de un usuario
-     * 
+     *
      * @param mixed    $value
      * @param integer  $type
      * @param integer  $member_id
@@ -165,10 +161,10 @@ class Account extends Model
         //
         return false;
     }
-    
+
     /**
      * Sube el avatar mediante el PC
-     * 
+     *
      * @param array    $avatar
      * @param integer  $member_id
      * @return array with string and integer values

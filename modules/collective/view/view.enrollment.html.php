@@ -23,23 +23,24 @@
 				<tr role="row" class="odd">
 					<td data-title="#" class="sorting_1"><?php echo $student['id']?></td>
 					<td data-title="Foto">
-						<img src="https://www.socialavisos.com/sistemas/sys-escolar/uploads/images/defualt.png" width="35px" height="35px" class="img-rounded" alt=""></td>
-						<td data-title="DNI/CI"><?php echo $student['dni'] ?></td>
-						<td data-title="Nombre"><?php echo $student['names'] ?></td>
-						<td data-title="Email"><?php echo $student['email'] ?></td>
-						<td data-title="Rol de Usuarios">
-						Estudiante</td>
-						<td data-title="Acción">
-							<a href="" class="btn btn-success btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Ver"><i class="fa fa-check-square-o"></i></a>
-							<a href="" class="btn btn-warning btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Editar">
-								<i class="fa fa-edit"></i>
-							</a>
-							<a href="" onclick="" class="btn btn-danger btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Borrar"><i class="fa fa-trash-o"></i></a>
-						</td>
-					</tr>
-				<?php endforeach ?>
-			</tbody>
-		</table>
-	</div>
+						<img src="https://www.socialavisos.com/sistemas/sys-escolar/uploads/images/defualt.png" width="35px" height="35px" class="img-rounded" alt="">
+					</td>
+					<td data-title="DNI/CI"><?php echo $student['dni'] ?></td>
+					<td data-title="Nombre"><?php echo $student['names'] ?></td>
+					<td data-title="Email"><?php echo $student['email'] ?></td>
+					<td data-title="Rol de Usuarios">
+					Estudiante</td>
+					<td data-title="Acción">
+						<a href="" class="btn btn-success btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Ver"><i class="fa fa-check-square-o"></i></a>
+						<a href="" class="btn btn-warning btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Editar">
+							<i class="fa fa-edit"></i>
+						</a>
+						<a href="" onclick="" class="btn btn-danger btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Borrar"><i class="fa fa-trash-o"></i></a>
+					</td>
+				</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+</div>
 </div>
 

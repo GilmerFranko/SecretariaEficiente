@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\members\view\account.html.php    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Vista del área "Perfil" de la cuenta
+
+ * @Description Vista del Ã¡rea "Perfil" de la cuenta
  *
  *
 */

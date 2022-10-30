@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        config.level.php                         \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Nivel de acceso para los diferentes módulos
  *
  *

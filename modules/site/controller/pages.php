@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\site\controller\pages.php        \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Controlador de las p·ginas est·ticas del sitio
+
+ * @Description Controlador de las p√°ginas est√°ticas del sitio
  *
  *
  */
@@ -46,8 +42,8 @@ else
 
 if(isset($message[0][0]))
 {
-	// P¡GINA NO ENCONTRADA
+	// P√ÅGINA NO ENCONTRADA
 	require BG_TEMPLATES . 'error' . DS . '404.php';
 }
-// FINALIZAR EJECUCI”N DEL SCRIPT
+// FINALIZAR EJECUCI√ìN DEL SCRIPT
 exit;

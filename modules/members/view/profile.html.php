@@ -19,8 +19,8 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
     PASOS A SEGUIR:
     <br/><br/>
     <hr />
-    Nuestra aplicaci&iacute;n en la PlayStore o Google Play se llama 
-<br/><a href="https://play.google.com/store/apps/details?id=com.bellas.gram.app.android">BellasGram </a><br/>(Puedes buscarla en la PlayStore o toca las letras azules para ir a Google Play) 
+    Nuestra aplicaci&iacute;n en la PlayStore o Google Play se llama
+<br/><a href="https://play.google.com/store/apps/details?id=com.bellas.gram.app.android">BellasGram </a><br/>(Puedes buscarla en la PlayStore o toca las letras azules para ir a Google Play)
 <hr />
 
 Instala la APP y la abres e ignora el contenido (a simple vista se ve como si fuera un app de un v&iacute;deojuego, pero lo rico esta oculto)<br/> <br/>
@@ -50,11 +50,7 @@ Y escribe bellasgram y espera que salga la manzana (al escribir bellasgram saldr
  *-------------------------------------------------------/
  * @file        modules\members\view\profile.html.php    \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Vista del perfil de un usuario
  *
  *

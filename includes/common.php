@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        common.php                               \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Se definen los directorios y se incluyen las configuraciones, funciones y clases a utilizar.
  *
  *
@@ -50,7 +46,7 @@ define('BG_UPLOADS', BG_DIR . 'filestore' . DS . 'uploads');
 
 /* Núcleo */
 require BG_LIB . 'core.class.php';
-    
+
 
 /* Modelo padre */
 require BG_LIB . 'model.class.php';

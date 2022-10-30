@@ -2,11 +2,7 @@
  *-------------------------------------------------------/
  * @file        static/js/custom.js                      \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Archivo relacionado con acciones generales
  *
  *

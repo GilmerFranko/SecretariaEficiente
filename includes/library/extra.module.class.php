@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        model.class.php                          \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo se encarga de administrar el modulo Core
  *
  *

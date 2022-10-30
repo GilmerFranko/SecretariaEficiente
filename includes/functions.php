@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        function.php                          \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Archivo que contiene varias funciones intuitivas, rápidas e imprescindibles
  *
  *

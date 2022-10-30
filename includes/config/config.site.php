@@ -4,42 +4,36 @@
  *-------------------------------------------------------/
  * @file        config.site.php                          \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Configuraci髇 del sitio
+
+ * @Description Configuraci贸n del sitio
  *
  *
 */
 
-// La direcci髇 principal del sitio, sin slash final.
+// La direcci贸n principal del sitio, sin slash final.
 $config['base_url']     = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . substr($_SERVER['PHP_SELF'], 0, -10);
 
-// Direcci髇 del sitio mediante carpetas, sin slash final.
+// Direcci贸n del sitio mediante carpetas, sin slash final.
 $config['base_path']    = BG_DIR;
 
-// Carpeta donde se alojan las im醙enes del script
+// Carpeta donde se alojan las im谩genes del script
 $config['images_url']   = $config['base_url'] . '/static/images';
 
-// Direcci髇 de avatares mediante url, sin el slash final.
+// Direcci贸n de avatares mediante url, sin el slash final.
 $config['avatar_url']   = $config['base_url'] . '/filestore/uploads/avatar';
 
-// Direcci髇 del sitio mediante carpetas, sin el slash final.
+// Direcci贸n del sitio mediante carpetas, sin el slash final.
 $config['avatar_path']  = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'avatar';
 
-// Url donde se alojan las im醙enes de los shouts
+// Url donde se alojan las im谩genes de los shouts
 $config['images_shout_url']   = $config['base_url'] . '/filestore/uploads/shout';
 
-// Carpeta donde se alojan las im醙enes de los shouts
+// Carpeta donde se alojan las im谩genes de los shouts
 $config['images_shout_path']   = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'shout';
 
 // Url de las fotos regaladas
 $config['photos_url']  = $config['base_url'] . '/filestore/uploads/photos';
 
-// Carpeta donde se alojan las im醙enes regaladas de los bots
-$config['photos_path']   = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'photos';
 
 // Carpeta donde se alojan los archivos con correos
 $config['bulkemails_path']   = $config['base_path'] . 'filestore' . DS . 'uploads' . DS . 'bulkemails';

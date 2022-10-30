@@ -4,12 +4,8 @@
  *-------------------------------------------------------/
  * @file        modules\members\controller\logout.php     \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Controlador del cierre de sesión
+
+ * @Description Controlador del cierre de sesiÃ³n
  *
  *
  */

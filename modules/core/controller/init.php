@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\core\controller\index.php        \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Se incluyen los archivos necesarios para mostrar la página
  *
  *

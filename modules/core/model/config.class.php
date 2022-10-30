@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\core\model\config.class.php       \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo retorna la configuración desde la base de datos
  *
  *

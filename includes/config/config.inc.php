@@ -4,27 +4,23 @@
  *-------------------------------------------------------/
  * @file        config.inc.php                           \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
- * @Description Configuración extra
+
+ * @Description ConfiguraciÃ³n extra
  *
  *
 */
 
-/* Se obtiene la configuración */
+/* Se obtiene la configuraciÃ³n */
 $config = Core::model('config', 'core')->getConfig();
 require BG_CONF . 'config.site.php';
 
 /* Mensaje din&aacute;mico a mostrar en plantilla */
 $message = array();
 
-/* Número de página actual */
+/* NÃºmero de pÃ¡gina actual */
 $page['number'] = isset($_GET['page']) && ctype_digit($_GET['page']) ? $_GET['page'] : 1;
 
-/* Se inicializa la sesión */
+/* Se inicializa la sesiÃ³n */
 session_start();
 
 // Nombre de sesion

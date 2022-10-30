@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\site\model\search.class.php      \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo se encarga de gestionar lo relacionado al buscador
  *
  *
@@ -16,17 +12,17 @@
 
 class Search extends Model
 {
-    
+
     public function __construct()
     {
         parent::__construct();
         $this->session = Core::model('session', 'core');
     }
-    
+
 
     /**
      * Obtiene todos los miembros de forma aleatoria
-     * 
+     *
      * @param int $id
      * @return array $shout
      */
@@ -63,7 +59,7 @@ class Search extends Model
         {
             $sql = 'SELECT `member_id`, `name`, `pp_thumb_photo` FROM `members` WHERE `member_id` > 0 '.$where.' ORDER BY '.$order.' LIMIT ' . $result['pages']['limit'];
         }
-        
+
         // EJECUTA CONSULTA QUE OBTIENE LOS DATOS DE LOS SHOUTS
         $query = $this->db->query($sql);
 

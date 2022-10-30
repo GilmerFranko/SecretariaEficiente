@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\site\view\contact.html.php       \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Vista de contacto
  *
  *
@@ -41,7 +37,7 @@ h3 {
 
 .submit__generated {
   display: inline-block;
-  
+
   span {
     display: inline-block;
     width: 35px;
@@ -53,11 +49,11 @@ h3 {
     color: rgba(0,0,0,0.9);
     text-align: center;
     letter-spacing: 1px;
-    text-transform: uppercase;  
+    text-transform: uppercase;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 4px;
   }
-  
+
   &.valid:after,
   &.unvalid:after {
     font-family: FontAwesome;

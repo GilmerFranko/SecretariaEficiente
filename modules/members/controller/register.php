@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\members\controller\logout.php     \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Controlador del registro de usuarios
  *
  *
@@ -34,7 +30,7 @@ if( isset($_POST['register']) )
                     $memberData['gender'] = ($memberData['gender'] == '1') ? 1 : 0;
                     $memberData['email'] = strtolower($memberData['email']);
                     //
-                    if( Core::model('member', 'members')->checkUserExists($memberData['name'], $memberData['email']) === false ) 
+                    if( Core::model('member', 'members')->checkUserExists($memberData['name'], $memberData['email']) === false )
                     {
                         $memberData['member_id'] = Core::model('access', 'members')->signIn($memberData);
                         //
@@ -45,7 +41,7 @@ if( isset($_POST['register']) )
                             {
                                 if( $hash = Core::model('access', 'members')->setRecover($memberData['member_id'], $memberData['email'], 2) )
                                 {
-                                    /* Enviamos el email de bienvenida / confirmación */
+                                    /* Enviamos el email de bienvenida / confirmaciÃ³n */
                                     Core::model('email', 'core')->sendEmail( 'welcome', $memberData['email'], array('name' => $memberData['name'], 'password' => $memberData['password'], 'hash' => $hash) );
                                     $message[] = array('Has sido registrado. Recibir&aacute; instrucciones en su correo electr&oacute;nico para validar la cuenta', 'success');
                                 }

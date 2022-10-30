@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\site\model\site.class.php        \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Este modelo se encarga de gestionar lo relacionado al sitio
  *
  *
@@ -16,17 +12,17 @@
 
 class Site extends Model
 {
-    
+
     public function __construct()
     {
         parent::__construct();
         $this->session = Core::model('session', 'core');
     }
-    
+
 
     /**
      * Registra contacto
-     * 
+     *
      * @param array $contact
      * @param boolean $email
      * @return int $contact_id
@@ -48,7 +44,7 @@ class Site extends Model
 
     /**
      * Obtiene los contactos
-     * 
+     *
      * @param string $search
      * @param int $limit
      * @param int $member_id
@@ -80,7 +76,7 @@ class Site extends Model
 
     /**
      * Borra un contacto
-     * 
+     *
      * @param integer $contact_id
      * @return boolean
      */

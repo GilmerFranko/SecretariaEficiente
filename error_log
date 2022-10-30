@@ -226,3 +226,4 @@ Stack trace:
 #2 C:\xampp\htdocs\otros\hfm\saadmin\index.php(24): require('C:\\xampp\\htdocs...')
 #3 {main}
   thrown in C:\xampp\htdocs\otros\hfm\saadmin\modules\students\controller\new.student.php on line 40
+[26-Oct-2022 19:20:27 UTC] Sentencia: <strong style="color:blue">SELECT `names`  FROM students WHERE dni = '28542820'  </strong>

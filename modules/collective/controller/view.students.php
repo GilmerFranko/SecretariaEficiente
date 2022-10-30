@@ -4,11 +4,7 @@
  *-------------------------------------------------------/
  * @file        modules\collective\controller\new.student.php     \
  * @package     One V                                     \
- * @author      Gilmer <gilmerfranko@hotmail.com>        |
- * @copyright   (c) 2020 Gilmer Franco                  /
- *                                                       /
- *=======================================================
- *
+
  * @Description Vista principal para ver estudiantes
  *
  *
