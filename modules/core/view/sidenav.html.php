@@ -50,7 +50,7 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo $extra->generateUrl('collective', 'view.periods') ?>">
+              <a href="<?php echo $extra->generateUrl('courses', 'view.periods') ?>">
                 <i class="material-icons">timelapse</i>
                 Periodo Estudiantil
               </a>
