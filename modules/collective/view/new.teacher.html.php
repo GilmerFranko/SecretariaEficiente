@@ -124,22 +124,24 @@
 				</div>
 			</div>
 
-			<div class="col l6 form-group">
-			</div>
 			<br>
 
+			<!-- Volver -->
+			<div class="col l6 form-group">
+				<a class="btn green" href="<?php echo $extra->generateUrl('collective', 'view.teachers'); ?>">Volver</a>
+			</div>
 			<!-- Enviar -->
 			<div class="col l6 form-group">
 				<input type="submit" class="btn btn-success" value="Agregar Docente">
 			</div>
 
-			<!-- Foto -->
+			<!-- Foto
 			<div class="col l6 form-group">
 				<div class="btn file-field waves-effect waves-light green darken-3 w50">
 					<i class="material-icons">camera</i>
 					<input name="images[]" id="file1" type="file" accept="image/jpeg, image/png" disabled="" onchange="previewFile(1)">
 				</div>
-			</div>
+			</div>-->
 
 		</div>
 	</form>

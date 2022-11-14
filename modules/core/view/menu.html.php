@@ -56,7 +56,7 @@
 
           <li>
             <div title="Docentes">
-              <a class="a-icon hide-on-small-only" href="<?php echo $extra->generateUrl('collective', 'new.teacher') ?>">
+              <a class="a-icon hide-on-small-only" href="<?php echo $extra->generateUrl('collective', 'view.teachers') ?>">
                 <!--<span class="">Profesores</span>-->
                 <i class="material-icons">person</i>
               </a>

@@ -1,20 +1,10 @@
 <?php defined('SAADMIN') || exit;
 
 /**
- * @Description Controlador principal para ver matriculas
+ * @Description Controlador principal para visualizar todos los docentes
  */
-$page['name'] = 'Matriculas';
-$page['code'] = 'view.enrollment';
+$page['name'] = 'Docentes';
+$page['code'] = 'view.teachers';
 
 
-
-if(isset($_POST['ajax']))
-{
-
-}
-else
-{
-	$periods = db('period')->getPeriods();
-	$courses = db('course')->getCourseName();
-
-}
+$teachers[] = DB('teacher')->getAll();
