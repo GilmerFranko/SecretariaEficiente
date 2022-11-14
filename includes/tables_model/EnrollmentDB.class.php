@@ -10,7 +10,7 @@ class EnrollmentDB extends Models
 	public function __construct()
 	{
 		parent::__construct();
-		$this->set_table("enrollment");
+		$this->set_table("enrollments");
 	}
 
 }

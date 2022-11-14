@@ -12,28 +12,58 @@
 ?>
 
 <ul id="slide-out" class="sidenav">
-  <li><div class="user-view">
-    <div class="background">
-      <img src="images/office.jpg">
+  <li>
+    <div class="user-view">
+      <div class="avatar-img">
+        <img src="<?php echo BG_IMAGES . 'default-avatar.png' ?>">
+      </div>
+      <a href="#name"><span class="black-text name"><?php echo $session->memberData['name'] ?></span></a>
+      <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a>
     </div>
-    <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-    <a href="#name"><span class="white-text name">John Doe</span></a>
-    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-  </div></li>
-  <li><a href="#!"><i class="material-icons">home</i>Principal</a></li>
+  </li>
+  <li>
+    <a href="#!"><i class="material-icons">home</i>Principal</a>
+  </li>
+  <li class="divider" tabindex="-1"></li>
   <li class="no-padding">
     <ul class="collapsible collapsible-accordion">
       <li>
-        <a class="collapsible-header">Colectivo<i class="material-icons">arrow_drop_down</i></a>
+        <a class="collapsible-header"><i class="material-icons">account_balance</i>Colectivo</a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="<?php echo $extra->generateUrl('collective', 'view.students') ?>">Estudiantes</a></li>
-            <li><a href="<?php echo $extra->generateUrl('collective', 'view.teachers') ?>">Estudiantes</a>">Profesores</a></li>
-            <li><a href="#!">Tutores</a></li>
+            <li>
+              <a href="<?php echo $extra->generateUrl('collective', 'view.students') ?>">
+                <i class="material-icons">school</i>
+                Estudiantes
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo $extra->generateUrl('collective', 'new.teacher') ?>">
+                <i class="material-icons">person</i>
+                Profesores
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo $extra->generateUrl('collective', 'view.enrollments') ?>">
+                <i class="material-icons">local_offer</i>
+                Inscripciones
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo $extra->generateUrl('collective', 'view.periods') ?>">
+                <i class="material-icons">timelapse</i>
+                Periodo Estudiantil
+              </a>
+            </li>
+            <li>
+              <a href="#!">
+                <i class="material-icons">person</i>
+                Tutores
+              </a>
+            </li>
           </ul>
         </div>
       </li>
     </ul>
   </li>
-
 </ul>

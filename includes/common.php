@@ -44,6 +44,9 @@ define('BG_TEMPLATES', BG_INC . 'templates' . DS);
 /* Directorios de subidas */
 define('BG_UPLOADS', BG_DIR . 'filestore' . DS . 'uploads');
 
+/* Directorios de imagenes del sistema */
+define('BG_IMAGES', 'filestore' . DS . 'images' . DS);
+
 /* Núcleo */
 require BG_LIB . 'core.class.php';
 
