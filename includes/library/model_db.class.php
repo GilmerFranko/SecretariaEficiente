@@ -46,7 +46,7 @@ class Models extends Model
 	/**
 	 * 	Clausula Beetween
 	 */
-	private $between  = '';
+	private $between  = 'LIMIT 1';
 	/**
 	 * 	Clausula Like
 	 */
@@ -79,6 +79,11 @@ class Models extends Model
 	public function set_table($table)
 	{
 		$this->table = $table;
+	}
+
+	public function get_table()
+	{
+		return $this->table;
 	}
 
 	/** CONSULTAS **/
@@ -231,23 +236,45 @@ class Models extends Model
   	{
   		if($count)
   		{
-  			return $query->num_rows;
+  			return $this->returnGet($query->num_rows);
   		}
 
   		elseif($query->num_rows > 0)
   		{
-  			$result = $query->fetch_assoc();
 
-  			return (object) ($this->columns == '*') ? $result : (is_array($this->columns) ? $result : $result[$this->columns]);
+
+  			/**
+  			 * Devuelve objeto cuando solo es un resultado
+  			 * @var [type]
+  			 */
+  			if($query->num_rows == 1){
+  				$result = $query->fetch_assoc();
+  				$return = (object) ($this->columns == '*') ? $result : (is_array($this->columns) ? $result : $result[$this->columns]);
+  				return $this->returnGet($return);
+  			}
+  			/**
+  			 * De ser mas de un resultado,
+  			 * Devuelve todos los resultados
+  			 * de forma empaquetada
+  			 */
+  			else
+  			{
+  				$row = [];
+  				while ($result = mysqli_fetch_assoc($query)) {
+  					$row[] = $result;
+  				}
+  				return $this->returnGet($row);
+  			}
+
   		}
   		else
   		{
   			Core::model('errors', 'core')->setError('bd-syntax.no_arrows', __LINE__, __FILE__);
-  			return false;
+  			return $this->returnGet(false);
   		}
   	}
   	Core::model('errors', 'core')->setError('bd-syntax', __LINE__, __FILE__);
-  	return false;
+  	return $this->returnGet(false);
   }
 
  	/**
@@ -298,50 +325,50 @@ class Models extends Model
  	 */
  	public function resetAll()
  	{
- 		/* Propiedades */
- 		$id        = 'id';
- 		/* Tabla predefinida */
+
 		/**
 		* Consulta SQL
 		*/
-		$sentence = '';
+		$this->sentence = '';
 		/**
 		 * 	Clausula WHERE
 		 */
-		$where    = Array();
+
+		$this->where    = Array();
 		/**
 		 * 	Clausula Order By
 		 */
-		$orderBy  = '';
+
+		$this->orderBy  = '';
 		/**
 		 * 	Clausula Limit
 		 */
-		$limit    = '';
+		$this->limit    = 'LIMIT 1';
 		/**
 		 * 	Clausula Beetween
 		 */
-		$between  = '';
+		$this->between  = '';
 		/**
 		 * 	Clausula Like
 		 */
-		$like     = '';
+		$this->like     = '';
 		/**
 		 * 	Clausula Select
 		 */
-		$select   = 'SELECT';
+		$this->select   = 'SELECT';
 		/**
 		 * 	Columnas Seleccionadas
 		 */
-		$columns  = [];
+		$this->columns  = [];
 		/**
 		 * 	(((Propiedad FROM)))
 		 */
-		$from     = 'FROM';
+		$this->from     = 'FROM';
 		/**
 		 * Consulta de totales
 		 * @var array
 		 */
-		$totals   = array();
+		$this->totals   = array();
 	}
 
 	/**
@@ -424,5 +451,39 @@ class Models extends Model
  			$this->totals['sql'] = '';
  		}
 
+ 	}
+
+ 	/**
+ 	 * Metodo para finalizar la ejecución de este
+ 	 * modelo devolviendo la consulta final
+ 	 * y al mismo tiempo formatear las
+ 	 * variables utilizadas
+ 	 * @return [type] [description]
+ 	 */
+ 	public function returnGet($return = null)
+ 	{
+ 		$this->resetAll();
+ 		return $return;
+ 	}
+
+ 	/**
+ 	 * Aplica un limite a la sentencia SELECT
+ 	 * @param  integer/string $limit limite
+ 	 * @return $this
+ 	 */
+ 	public function limit($limit = 1)
+ 	{
+ 		/**
+ 		 * No aplicar limites
+ 		 */
+ 		if($limit == 'none')
+ 		{
+ 			$this->limit = 'LIMIT 18446744073709551615';
+ 		}
+ 		else
+ 		{
+ 			$this->limit = 'LIMIT '.$limit;
+ 		}
+ 		return $this;
  	}
  }
