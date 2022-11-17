@@ -33,3 +33,12 @@ function db(String $table)
 {
 	return LoadTable::model($table . 'DB');
 }
+
+/**
+ * Muestra un texto en la consola del navegador
+ * @param  string $string
+ */
+function showlog($string = '')
+{
+	echo '<script>console.log(\'{'. $string .'}\')</script>';
+}

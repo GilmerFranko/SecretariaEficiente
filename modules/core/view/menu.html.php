@@ -1,13 +1,7 @@
 <?php defined('SAADMIN') || exit;
 
 /**
-*-------------------------------------------------------/
-* @file        menu.html.php                            \
-* @package     One V                                     \
-
 * @Description Archivo que incluye parte de la cabecera
-*
-*
 */
 ?>
 <header><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="UTF-8">

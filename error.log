@@ -1,0 +1,78 @@
+[17-Nov-2022 00:10:16 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM students WHERE id = '28542820'  </strong>
+[17-Nov-2022 00:10:16 UTC] Sentencia: <strong style="color:blue">SELECT * ,  FROM students WHERE id = '28542820' and id = '28542820'  </strong>
+[17-Nov-2022 00:11:07 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM students WHERE dni = '28542820'  </strong>
+[17-Nov-2022 00:11:07 UTC] Sentencia: <strong style="color:blue">SELECT * ,  FROM students WHERE dni = '28542820' and id = '28542820'  </strong>
+[17-Nov-2022 00:11:21 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM students WHERE dni = '28542820'  </strong>
+[17-Nov-2022 00:11:28 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM students WHERE dni = '28542820'  </strong>
+[17-Nov-2022 00:14:02 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM students WHERE dni = '12562932'  </strong>
+[17-Nov-2022 00:14:08 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM teachers   </strong>
+[17-Nov-2022 00:15:09 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM teachers   </strong>
+[17-Nov-2022 00:15:12 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM teachers   </strong>
+[17-Nov-2022 00:15:16 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM students WHERE id = '24'  </strong>
+[17-Nov-2022 00:15:16 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM periods WHERE id = '1'  </strong>
+[17-Nov-2022 00:15:16 UTC] Sentencia: <strong style="color:blue">SELECT * ,  FROM students WHERE id = '24' and id = '24'  </strong>
+[17-Nov-2022 00:15:16 UTC] Sentencia: <strong style="color:blue">SELECT * ,  FROM periods WHERE id = '1' and id = '1'  </strong>
+[17-Nov-2022 00:15:48 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM periods   </strong>
+[17-Nov-2022 00:16:05 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM periods WHERE name = '2022-2022'  </strong>
+[17-Nov-2022 00:16:18 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM periods WHERE name = '2022-2022'  </strong>
+[17-Nov-2022 00:17:16 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM periods WHERE name = '1970-1970'  </strong>
+[17-Nov-2022 00:17:21 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM teachers   </strong>
+[17-Nov-2022 00:17:29 UTC] Sentencia: <strong style="color:blue">SELECT `names`  FROM students WHERE dni = '28542820'  </strong>
+[17-Nov-2022 03:25:45 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM classes   </strong>
+[17-Nov-2022 03:25:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in C:\xampp\htdocs\otros\hfm\saadmin\includes\library\core.class.php on line 138
+[17-Nov-2022 03:27:40 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM classes   </strong>
+[17-Nov-2022 03:27:40 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 14
+[17-Nov-2022 03:27:40 UTC] PHP Notice:  Undefined variable: periods in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:27:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:27:40 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 32
+[17-Nov-2022 03:27:40 UTC] PHP Notice:  Undefined variable: filter_name in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 46
+[17-Nov-2022 03:27:40 UTC] PHP Notice:  Undefined variable: enrollments in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61
+[17-Nov-2022 03:27:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61
+[17-Nov-2022 03:27:59 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM classes   </strong>
+[17-Nov-2022 03:27:59 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 14
+[17-Nov-2022 03:27:59 UTC] PHP Notice:  Undefined variable: periods in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:27:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:27:59 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 32
+[17-Nov-2022 03:27:59 UTC] PHP Notice:  Undefined variable: filter_name in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 46
+[17-Nov-2022 03:27:59 UTC] PHP Notice:  Undefined variable: enrollments in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61
+[17-Nov-2022 03:27:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61
+[17-Nov-2022 03:28:21 UTC] Sentencia: <strong style="color:blue">SELECT *  FROM classes   </strong>
+[17-Nov-2022 03:28:21 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 14
+[17-Nov-2022 03:28:21 UTC] PHP Notice:  Undefined variable: periods in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:28:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:28:21 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 32
+[17-Nov-2022 03:28:21 UTC] PHP Notice:  Undefined variable: enrollments in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61
+[17-Nov-2022 03:28:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61
+[17-Nov-2022 03:32:25 UTC] PHP Fatal error:  Uncaught Error: Class 'class' not found in C:\xampp\htdocs\otros\hfm\saadmin\includes\library\core.class.php:91
+Stack trace:
+#0 C:\xampp\htdocs\otros\hfm\saadmin\includes\functions.php(22): Core::model('class', 'collective')
+#1 C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\controller\view.classes.php(15): loadClass(Array)
+#2 C:\xampp\htdocs\otros\hfm\saadmin\modules\core\controller\init.php(55): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\otros\hfm\saadmin\includes\common.php(76): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\otros\hfm\saadmin\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\otros\hfm\saadmin\includes\library\core.class.php on line 91
+[17-Nov-2022 03:34:19 UTC] PHP Fatal error:  Uncaught Error: Class 'class' not found in C:\xampp\htdocs\otros\hfm\saadmin\includes\library\core.class.php:91
+Stack trace:
+#0 C:\xampp\htdocs\otros\hfm\saadmin\includes\functions.php(22): Core::model('class', 'collective')
+#1 C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\controller\view.classes.php(15): loadClass(Array)
+#2 C:\xampp\htdocs\otros\hfm\saadmin\modules\core\controller\init.php(55): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\otros\hfm\saadmin\includes\common.php(76): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\otros\hfm\saadmin\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\otros\hfm\saadmin\includes\library\core.class.php on line 91
+[17-Nov-2022 03:34:27 UTC] PHP Fatal error:  Uncaught Error: Class 'class' not found in C:\xampp\htdocs\otros\hfm\saadmin\includes\library\core.class.php:91
+Stack trace:
+#0 C:\xampp\htdocs\otros\hfm\saadmin\includes\functions.php(22): Core::model('class', 'collective')
+#1 C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\controller\view.classes.php(15): loadClass(Array)
+#2 C:\xampp\htdocs\otros\hfm\saadmin\modules\core\controller\init.php(55): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\otros\hfm\saadmin\includes\common.php(76): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\otros\hfm\saadmin\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\otros\hfm\saadmin\includes\library\core.class.php on line 91
+[17-Nov-2022 03:34:40 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 14
+[17-Nov-2022 03:34:40 UTC] PHP Notice:  Undefined variable: periods in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:34:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 20
+[17-Nov-2022 03:34:40 UTC] PHP Notice:  Undefined variable: filter_period in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 32
+[17-Nov-2022 03:34:40 UTC] PHP Notice:  Undefined variable: classes in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61
+[17-Nov-2022 03:34:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\otros\hfm\saadmin\modules\collective\view\view.classes.html.php on line 61

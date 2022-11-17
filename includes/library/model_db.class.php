@@ -17,6 +17,10 @@ class Models extends Model
 		parent::__construct();
 	}
 
+	function __destruct()
+	{
+		$this->resetAll();
+	}
 
 	/* Propiedades */
 	public $id        = 'id';
@@ -229,6 +233,7 @@ class Models extends Model
   		{
   			return $query->num_rows;
   		}
+
   		elseif($query->num_rows > 0)
   		{
   			$result = $query->fetch_assoc();
@@ -293,32 +298,101 @@ class Models extends Model
  	 */
  	public function resetAll()
  	{
+ 		/* Propiedades */
+ 		$id        = 'id';
+ 		/* Tabla predefinida */
+		/**
+		* Consulta SQL
+		*/
+		$sentence = '';
+		/**
+		 * 	Clausula WHERE
+		 */
+		$where    = Array();
+		/**
+		 * 	Clausula Order By
+		 */
+		$orderBy  = '';
+		/**
+		 * 	Clausula Limit
+		 */
+		$limit    = '';
+		/**
+		 * 	Clausula Beetween
+		 */
+		$between  = '';
+		/**
+		 * 	Clausula Like
+		 */
+		$like     = '';
+		/**
+		 * 	Clausula Select
+		 */
+		$select   = 'SELECT';
+		/**
+		 * 	Columnas Seleccionadas
+		 */
+		$columns  = [];
+		/**
+		 * 	(((Propiedad FROM)))
+		 */
+		$from     = 'FROM';
+		/**
+		 * Consulta de totales
+		 * @var array
+		 */
+		$totals   = array();
+	}
 
- 	}
- 	public function defaultWhere()
- 	{
- 		$this->where['sql'] = SPACE;
- 	}
- 	public function whereID($id)
- 	{
- 		if(is_numeric($id))
- 		{
- 			$this->where($this->id, '=', $id);
- 			return $this;
- 		}
- 		else
- 		{
- 			Core::model('errors', 'core')->setError('argument.invalid', __LINE__, __FILE__);
- 			return false;
- 		}
- 		return false;
- 	}
+	/**
+	 * [defaultWhere description]
+	 * @return [type] [description]
+	 */
+	public function defaultWhere()
+	{
+		$this->where['sql'] = SPACE;
+	}
 
- 	public function count($column)
- 	{
- 		$this->totals['t'][] = array('COUNT', $column);
- 		return $this;
- 	}
+	/**
+	 * [whereID description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function whereID($id)
+	{
+		if(is_numeric($id))
+		{
+			$this->where($this->id, '=', $id);
+			return $this;
+		}
+		else
+		{
+			Core::model('errors', 'core')->setError('argument.invalid', __LINE__, __FILE__);
+			return false;
+		}
+		return false;
+	}
+
+	/**
+	 * Devuelve la cantidad de filas encontradas
+	 * Solo en un SELECT
+	 * @return [type] [description]
+	 */
+	public function numRows()
+	{
+		return $this->get(true);
+	}
+
+	/**
+	 * [count description]
+	 * @param  [type] $column [description]
+	 * @return [type]         [description]
+	 */
+	public function count($column)
+	{
+		$this->totals['t'][] = array('COUNT', $column);
+		return $this;
+	}
 
  	/**
  	 * Verifica integridad en las consultas de totales
@@ -334,9 +408,15 @@ class Models extends Model
  		if(!empty($this->totals))
  		{
  			$this->totals['sql'] = ', ';
- 			foreach ($this->totals['t'] as $key => $value) {
- 				$this->totals['sql'] .= $value[0] . '(`' . $value[1] . '`)';
+
+ 			if(!empty($this->totals['t']))
+ 			{
+ 				foreach ($this->totals['t'] as $key => $value) {
+ 					$this->totals['sql'] .= $value[0] . '(`' . $value[1] . '`)';
+ 				}
  			}
+
+
  			$this->totals['sql'] = $this->securityClean($this->totals['sql']);
  		}
  		else

@@ -27,15 +27,27 @@ class Enrollment extends Model
 	 * @param
 	 * @return [type]
 	 */
-	public function getEnrollment()
+	public function getEnrollment($filter_data = null)
 	{
-		$data = [];
-		$enrollment[0] = DB('enrollment')->getAll();
-		foreach ($enrollment as $value)
+		$where = array();
+
+		if(isset($filter_data['filter_period']))
 		{
-			$enrollment[0]['student'] = DB('student')->where('id', '=', $value['student_id'])->get();
-			$data[] = $enrollment;
+			$where['period_id'] = $filter_data['filter_period'];
 		}
-		return $data[0];
+
+		$row = [];
+
+		if($enrollment = DB('enrollment')->getAllEnrollments($where))
+		{
+			foreach ($enrollment as $value)
+			{
+				$enrollment[0]['student'] = DB('student')->where('id', '=', $value['student_id'])->get();
+				$enrollment[0]['period'] = DB('period')->where('id', '=', $value['period_id'])->get();
+				$row[] = $enrollment[0];
+			}
+			return $row;
+		}
+		return false;
 	}
 }

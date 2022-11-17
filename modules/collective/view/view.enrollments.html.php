@@ -1,39 +1,74 @@
 <section class="container">
 	<blockquote class="flow-text"><?php echo $page['name'] ?></strong></blockquote>
+	<a class="btn btn-success" href="<?php echo $extra->generateUrl('collective', 'new.enrollment') ?>"><i class="fa fa-plus"></i>Agregar nueva inscripción</a>
 
-	<a class="btn btn-success" href="<?php echo $extra->generateUrl('collective', 'new.enrollment') ?>"><i class="fa fa-plus"></i>Agregar nuevo estudiante</a>
-</h5>
 
-<div id="hide-table">
-	<div id="example1_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="example1"><span>Copy</span></a><a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example1"><span>Excel</span></a><a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="example1"><span>CSV</span></a><a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="example1"><span>PDF</span></a></div><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div><table id="example1" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="example1_info">
+
+	<h5>Filtrar Por</h5>
+	<form action="<?php echo $extra->generateUrl('collective', 'view.enrollments'); ?>" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+		<div class="row">
+			<div class="row">
+				<div class="col l6 form-group">
+
+					<!-- Filtrado por periodo -->
+					<div class="row <?php echo ($filter_period['status']) ? 'filtered' : '' ?>" style="display: flex; align-items: center;">
+						<div class="col s6">
+							<label for="s2id_autogen5" class="	 control-label">
+								Periodos <span class="text-red">*</span>
+							</label>
+							<select name="filter_period" id="filter_period" class="browser-default select2 select2-offscreen" tabindex="-1">
+								<?php foreach ($periods as $period): ?>
+									<?php if ($filter_period AND $period['id'] == $filter_period['data']){ ?>
+										<option value="<?php echo $period['id'] ?>" selected><?php echo $period['name'] ?></option>
+									<?php }else{ ?>
+										<option value="<?php echo $period['id'] ?>"><?php echo $period['name'] ?></option>
+									<?php } ?>
+
+								<?php endforeach ?>
+							</select>
+						</div>
+						<div class="col s4">
+							<label>
+								<input id="checkbox_filter_period" type="checkbox" <?php echo ($filter_period['status']) ? 'checked' : '' ?>>
+								<span></span>
+							</label>
+						</div>
+					</div>
+					<!-- -->
+
+				</div>
+				<div class="col l3 form-group">
+					<input id="apply_filter" class="btn" type="submit" name="" value="Filtrar">
+				</div>
+			</div>
+		</div>
+	</form>
+	<h4><?php echo $filter_name ?></h4>
+	<table class="centered">
 		<thead>
-			<tr role="row">
-				<th class="col-sm-2 sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="DNI/CI: activate to sort column ascending" style="width: 165px;">DNI/CI</th>
-				<th class="col-sm-2 sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nombre: activate to sort column ascending" style="width: 165px;">Periodo</th>
-				<th class="col-sm-2 sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 165px;">Clase</th>
-				<th class="col-sm-1 sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 73px;">Estado</th>
-				<th class="col-sm-5 sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Acción: activate to sort column ascending" style="width: 165px;">Acción</th>
+			<tr>
+				<th>#</th>
+				<th>DNI</th>
+				<th>Nombre</th>
+				<th>Periodo</th>
+				<th>Clase</th>
+				<th>Accion</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 
 			<?php foreach ($enrollments as $enrollment): ?>
 				<tr role="row" class="odd">
-					<td data-title="#" class="sorting_1"><?php echo $enrollment['student']['dni']?></td>
-					<td data-title="DNI/CI"><?php echo $enrollment['student']['names'] ?></td>
-					<td data-title="Periodo"><?php echo $enrollment['period_id'] ?></td>
-					<td data-title="Clase"><?php echo $enrollment['class_id'] ?></td>
-					<td data-title="Acción">
-						<a href="" class="btn btn-success btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Ver"><i class="fa fa-check-square-o"></i></a>
-						<a href="" class="btn btn-warning btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Editar">
-							<i class="fa fa-edit"></i>
-						</a>
-						<a href="" onclick="" class="btn btn-danger btn-xs mrg" data-placement="top" data-toggle="tooltip" data-original-title="Borrar"><i class="fa fa-trash-o"></i></a>
-					</td>
+					<td><?php echo $enrollment['id']?></td>
+					<td><?php echo $enrollment['student']['dni']?></td>
+					<td><?php echo $enrollment['student']['names'] ?></td>
+					<td><?php echo $enrollment['period']['name'] ?></td>
+					<td><?php echo $enrollment['class_id'] ?></td>
+					<td><button></button></td>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
 	</table>
 </div>
 </div>
-

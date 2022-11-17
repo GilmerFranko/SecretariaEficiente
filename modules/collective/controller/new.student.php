@@ -32,7 +32,23 @@ if(isset($_GET['new-student']))
 		'address'     => $_POST['address'],
 		'status'      => 1,
 	);
-	loadClass('collective/student')->newStudent($data);
+	if(DB('student')->where('dni', '=', $data['dni'])->numRows() == 0)
+	{
+		if(loadClass('collective/student')->newStudent($data))
+		{
+			$message[] = array('Estudiante Agregado');
+		}
+		else
+		{
+			$message[] = array('No se pudo agregadar el estudiante');
+		}
+
+	}
+	else
+	{
+		$message[] = array('Ya se encuentra agregado un estudiante con el mismo DNI');
+	}
+	$extra->setToast($message);
 }
 
 $students = array(

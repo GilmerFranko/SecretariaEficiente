@@ -14,4 +14,7 @@ $page['code'] = 'view.course';
 
 $level = (isset($_GET['level']) and !empty($_GET['level'])) ? $_GET['level'] : 1;
 
-$students = loadClass('collective/student')->getStudents();
+if(!$students = loadClass('collective/student')->getStudents())
+{
+	$students = [];
+}

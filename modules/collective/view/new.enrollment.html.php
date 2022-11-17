@@ -12,7 +12,7 @@
 						DNI/CI <span class="text-red">*</span>
 					</label>
 					<div class="">
-						<input type="text" class="" id="dni" name="dni">
+						<input type="text" class="" id="dni" name="dni" autocomplete="off">
 					</div>
 					<span class="control-label">
 					</span>
@@ -35,7 +35,7 @@
 							<div class="row">
 								<div class="input-field col s12">
 									<i class="material-icons prefix">textsms</i>
-									<input type="text" id="period" name="period" class="autocomplete">
+									<input type="text" id="period" name="period" class="autocomplete" autocomplete="off" disabled="">
 									<label for="period">Periodo</label>
 								</div>
 							</div>
@@ -50,7 +50,7 @@
 							<div class="row">
 								<div class="input-field col s12">
 									<i class="material-icons prefix">textsms</i>
-									<input type="text" id="class_id" name="class_id" class="autocomplete">
+									<input type="text" id="class_id" name="class_id" class="autocomplete" autocomplete="off" disabled="">
 									<label for="class_id">Clase</label>
 								</div>
 							</div>

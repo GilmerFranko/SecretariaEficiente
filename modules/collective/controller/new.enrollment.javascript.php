@@ -24,18 +24,28 @@
 			type: 'post',
 			data: {'dni': $('#dni').val(), 'ajax': true},
 			success: function (data) {
+				console.log(data)
 				if(data == 0)
 				{
 					$('#names').val('Estudiante no encontrado')
 					$('#names').css('color', 'red')
+
+					/* Desactiva inputs */
+					$("#class_id").attr('disabled', true)
+					$("#period").attr('disabled', true)
 				}
 				else
 				{
 					$('#names').val(data)
-				}
+						/**
+						* Activa inputs
+						*/
+						$("#class_id").removeAttr('disabled')
+						$("#period").removeAttr('disabled')
+					}
 
-			}
-		});
+				}
+			});
 	})
 
 
