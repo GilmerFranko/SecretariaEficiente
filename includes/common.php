@@ -49,8 +49,8 @@ define('BG_IMAGES', 'filestore' . DS . 'images' . DS);
 
 /* Núcleo */
 require BG_LIB . 'core.class.php';
-
-
+/* Conexión a bd */
+require BG_LIB . 'mysqlconnect.class.php';
 /* Modelo padre */
 require BG_LIB . 'model.class.php';
 

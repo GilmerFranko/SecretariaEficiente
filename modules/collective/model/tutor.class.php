@@ -21,6 +21,10 @@ class Tutor extends Model
 		parent::__construct();
 	}
 
+	function __destruct()
+	{
+
+	}
 
 	/**
 	 * Devuelve un Tutor

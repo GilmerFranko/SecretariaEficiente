@@ -13,11 +13,16 @@
 class Email extends Model
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->session = Core::model('session', 'core');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->session = Core::model('session', 'core');
+	}
+
+	function __destruct()
+	{
+
+	}
 
     /**
      * Envía un correo electrónico
@@ -30,13 +35,13 @@ class Email extends Model
     function sendEmail( $template = 'normal', $email = NULL, $params = array(), $subject = null, $content = null )
     {
         // INCLUIR PLANTILLA
-        require BG_INC . 'templates' . DS . 'mail' . DS . $template . '.mail.php';
+    	require BG_INC . 'templates' . DS . 'mail' . DS . $template . '.mail.php';
         // CABECERAS
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $headers .= 'From: '.$this->config['script_name'].' <>' . "\r\n";
+    	$headers  = 'MIME-Version: 1.0' . "\r\n";
+    	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    	$headers .= 'From: '.$this->config['script_name'].' <>' . "\r\n";
         // ENVIAR EMAIL
-        $mail = mail($email, $subject, $content, $headers);
-        return $mail;
+    	$mail = mail($email, $subject, $content, $headers);
+    	return $mail;
     }
-}
+  }

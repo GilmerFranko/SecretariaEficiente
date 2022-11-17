@@ -38,7 +38,13 @@ function db(String $table)
  * Muestra un texto en la consola del navegador
  * @param  string $string
  */
-function showlog($string = '')
+function showlog($string = '', $var_export = true)
 {
+	if($var_export)
+	{
+		$string = var_export($string, 1);
+	}
+
 	echo '<script>console.log(\'{'. $string .'}\')</script>';
+	error_log($string);
 }

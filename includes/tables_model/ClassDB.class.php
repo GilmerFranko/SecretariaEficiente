@@ -13,4 +13,9 @@ class ClassDB extends Models
 		parent::__construct();
 		$this->set_table("classes");
 	}
+	function __destruct()
+	{
+
+	}
+
 }

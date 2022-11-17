@@ -14,6 +14,11 @@ class PeriodDB extends Models
 		$this->set_table("periods");
 	}
 
+	function __destruct()
+	{
+
+	}
+
 	public function getPeriods()
 	{
 		$select = $this->db->query('SELECT `name` FROM `periods`');

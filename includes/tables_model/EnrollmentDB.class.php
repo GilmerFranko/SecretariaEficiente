@@ -13,6 +13,11 @@ class EnrollmentDB extends Models
 		$this->set_table("enrollments");
 	}
 
+	function __destruct()
+	{
+
+	}
+
 	/**
 	 * Devuelve todas las incripciones
 	 * aplicando uno o varios filtros

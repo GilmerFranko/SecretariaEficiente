@@ -19,4 +19,8 @@ class ClientDB extends Models
 		$this->set_table("clients");
 	}
 
+	function __destruct()
+	{
+
+	}
 }

@@ -20,6 +20,10 @@ class MemberDB extends Models
 		$this->id = 'member_id';
 	}
 
+	function __destruct()
+	{
+
+	}
 
 	/**
    * Obtiene cantidad de usuarios conectados

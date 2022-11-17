@@ -14,6 +14,11 @@ class CourseDB extends Models
 		$this->set_table("courses");
 	}
 
+	function __destruct()
+	{
+
+	}
+
 	public function getCourseName()
 	{
 		$select = $this->db->query('SELECT `name` FROM `courses`');

@@ -13,58 +13,50 @@
 class Model
 {
     // Base de Datos 									(opc)
-    public $db;
+  public $db;
 
     // Configuración 									(opc)
-    public $config;
+  public $config;
 
     // Sesión actual 									(opc)
-    public $session;
+  public $session;
 
     // Atajo a cagador de controlador (opc)
-    public $cController;
+  public $cController;
 
     // Atajo a cagador de modelo 			(opc)
-    public $cModel;
+  public $cModel;
 
     // Atajo a cagador de vista  			(opc)
-    public $cView;
+  public $cView;
 
     // Modulo
-    public static $module = 'core';
+  public static $module = 'core';
 
     // Constructor
-    function __construct()
-    {
-        /* Archivo de configuración de la base de datos */
-        require BG_CONF . 'config.db.php';
+  function __construct()
+  {
+    global $dbconnect;
+    $this->db = $dbconnect;
 
-        /* Creamos la conexión */
-        $this->db = new MySQLi($db['hostname'], $db['username'], $db['userpass'], $db['database']);
-
-        /* Si hay algún error, lo mostramos */
-        if ($this->db->connect_errno)
-        {
-            die('Error al conectar: ' . $this->db->connect_error);
-        }
-
-        /* Se obtiene y establece la configuración */
-        $query = $this->db->query('SELECT * FROM `site_configuration` ORDER BY `id` DESC LIMIT 1');
+    /* Se obtiene y establece la configuración */
+    $query = $this->db->query('SELECT * FROM `site_configuration` ORDER BY `id` DESC LIMIT 1');
         //
-        if($query == true && $query->num_rows > 0)
-        {
-            $config = $query->fetch_assoc();
-            require BG_CONF . 'config.site.php';
-            //
-            $this->config = $config;
-            /* Almacena en la sesion el Modo Debug */
-            $_SESSION['debug_mode'] = $this->config['debug_mode'];
-        }
-
-        /* Se obtiene y se establece la sesión */
-    }
-    static function Model($file='')
+    if($query == true && $query->num_rows > 0)
     {
-    	return Core::model($file,self::$module);
+      $config = $query->fetch_assoc();
+      require BG_CONF . 'config.site.php';
+            //
+      $this->config = $config;
+      /* Almacena en la sesion el Modo Debug */
+      $_SESSION['debug_mode'] = $this->config['debug_mode'];
     }
+
+
+    /* Se obtiene y se establece la sesión */
+  }
+  static function Model($file='')
+  {
+   return Core::model($file,self::$module);
+ }
 }

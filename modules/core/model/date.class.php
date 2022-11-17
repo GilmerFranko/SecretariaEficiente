@@ -20,6 +20,13 @@ class Date
 		// parent::__construct();
 		// $this->session = Core::model('session', 'core');
 	}
+
+	function __destruct()
+	{
+
+	}
+
+
 	function getDate($content = null)
 	{
 		$days = array(
@@ -89,33 +96,33 @@ class Date
 	}
 
 	function getTime($select = null, $seconds = null)
-  {
+	{
     // Transforma de segundos a Minutos y Horas
-    $seconds = ($seconds == null) ? time() : $seconds;
-    $hours = floor($seconds/ 3600);
-    $minutes = floor(($seconds - ($hours * 3600)) / 60);
-    $seconds = $seconds - ($hours * 3600) - ($minutes * 60);
+		$seconds = ($seconds == null) ? time() : $seconds;
+		$hours = floor($seconds/ 3600);
+		$minutes = floor(($seconds - ($hours * 3600)) / 60);
+		$seconds = $seconds - ($hours * 3600) - ($minutes * 60);
 
     // Tranforma a string y formatea
-    $seconds = (strlen($seconds) == 1) ? '0' . $seconds : $seconds;
-    $minutes = (strlen($minutes) == 1) ? '0' . $minutes : $minutes;
+		$seconds = (strlen($seconds) == 1) ? '0' . $seconds : $seconds;
+		$minutes = (strlen($minutes) == 1) ? '0' . $minutes : $minutes;
 
-    $params = array('h' => $hours, 'm' => $minutes, 's' => $seconds);
-    $result = '';
-    for($i=0;$i<strlen($select);$i++)
-    {
-      if(isset($params[$select[$i]]))
-      {
-        $result .= $params[$select[$i]];
-      }
-      else
-      {
-        $result .= $select[$i];
-      }
+		$params = array('h' => $hours, 'm' => $minutes, 's' => $seconds);
+		$result = '';
+		for($i=0;$i<strlen($select);$i++)
+		{
+			if(isset($params[$select[$i]]))
+			{
+				$result .= $params[$select[$i]];
+			}
+			else
+			{
+				$result .= $select[$i];
+			}
 
-    }
-    return $result;
-  }
+		}
+		return $result;
+	}
 
 	/**
 	 * Formatea una fecha legible por humanos

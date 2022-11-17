@@ -19,6 +19,10 @@ class Db extends Model
 		$this->session = Core::model('session', 'core');
 	}
 
+	function __destruct()
+	{
+
+	}
 
   /**
    * Obtiene la cuenta de una columna
@@ -57,19 +61,19 @@ class Db extends Model
  	if ($query == true)
  	{
  		if($query->num_rows > 0)
-  	{
-  		$result = $sentence == true ? $query : $query->fetch_assoc();
-  		return is_array($input) ? $result : $result[$input];
-  	}
-  	else
-  	{
-  		die('La consulta se ejecuto con exíto pero devolvió 0 filas');
-  		return false;
-  	}
-  }
+ 		{
+ 			$result = $sentence == true ? $query : $query->fetch_assoc();
+ 			return is_array($input) ? $result : $result[$input];
+ 		}
+ 		else
+ 		{
+ 			die('La consulta se ejecuto con exíto pero devolvió 0 filas');
+ 			return false;
+ 		}
+ 	}
 
-  return false;
-}
+ 	return false;
+ }
 
   /**
    * Elimina una fila de la base de datos

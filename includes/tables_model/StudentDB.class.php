@@ -19,5 +19,9 @@ class StudentDB extends Models
 		$this->set_table("students");
 	}
 
+	function __destruct()
+	{
+
+	}
 
 }

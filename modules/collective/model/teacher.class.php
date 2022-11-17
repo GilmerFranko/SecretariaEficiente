@@ -21,6 +21,11 @@ class Teacher extends Model
 		parent::__construct();
 	}
 
+	function __destruct()
+	{
+
+	}
+
 	/**
 	* @param  Array
 	* @return boolean

@@ -15,4 +15,8 @@ class TeacherDB extends Models
 	}
 
 
+	function __destruct()
+	{
+
+	}
 }

@@ -13,12 +13,17 @@
 class Site extends Model
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->session = Core::model('session', 'core');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->session = Core::model('session', 'core');
+	}
 
+
+	function __destruct()
+	{
+
+	}
 
     /**
      * Registra contacto
@@ -29,17 +34,17 @@ class Site extends Model
      */
     public function newContact($contact = null, $email = true)
     {
-        $query = $this->db->query('INSERT INTO `site_contacts` (`member_id`, `name`, `email`, `title`, `content`, `date`, `ip`) VALUES (\'' . $contact['member_id'] . '\', \'' . $this->db->real_escape_string($contact['name']) . '\', \'' . $this->db->real_escape_string($contact['email']) . '\',  \'' . $this->db->real_escape_string($contact['title']) . '\', \'' . $this->db->real_escape_string($contact['content']) . '\',   UNIX_TIMESTAMP(), \'' . $this->db->real_escape_string( Core::model('extra', 'core')->getIp() ) . '\') ');
+    	$query = $this->db->query('INSERT INTO `site_contacts` (`member_id`, `name`, `email`, `title`, `content`, `date`, `ip`) VALUES (\'' . $contact['member_id'] . '\', \'' . $this->db->real_escape_string($contact['name']) . '\', \'' . $this->db->real_escape_string($contact['email']) . '\',  \'' . $this->db->real_escape_string($contact['title']) . '\', \'' . $this->db->real_escape_string($contact['content']) . '\',   UNIX_TIMESTAMP(), \'' . $this->db->real_escape_string( Core::model('extra', 'core')->getIp() ) . '\') ');
 
         // SI SE HA AGREGADO
-        if ($query == true)
-        {
+    		if ($query == true)
+    		{
             // Retorna el ID registrado
-            return $this->db->insert_id;
-        }
+    			return $this->db->insert_id;
+    		}
 
-        return false;
-    }
+    		return false;
+    	}
 
 
     /**
@@ -53,25 +58,25 @@ class Site extends Model
     function getContacts($search = '', $limit = 20)
     {
         // PREFERENCIAS DE BÚSQUEDA
-        $where = empty($search) ? '' : 'WHERE ' . (ctype_digit($search) ? '`member_id` = \'' . $search . '\'' : '`name` LIKE \'%'.$search.'%\' || `email` LIKE \'%'.$search.'%\'');
+    	$where = empty($search) ? '' : 'WHERE ' . (ctype_digit($search) ? '`member_id` = \'' . $search . '\'' : '`name` LIKE \'%'.$search.'%\' || `email` LIKE \'%'.$search.'%\'');
 
         // CONTACTOS TOTALES
-        $query = $this->db->query('SELECT COUNT(`id`) FROM `site_contacts` ' . $where);
-        list($result['total']) = $query->fetch_row();
+    	$query = $this->db->query('SELECT COUNT(`id`) FROM `site_contacts` ' . $where);
+    	list($result['total']) = $query->fetch_row();
         // PAGINADOR
-        $result['pages'] = Core::model('paginator', 'core')->pageIndex( array('admin', 'contacts', null, array('search' => $search)), $result['total'], $limit);
+    	$result['pages'] = Core::model('paginator', 'core')->pageIndex( array('admin', 'contacts', null, array('search' => $search)), $result['total'], $limit);
         // EJECUTA LA CONSULTA
-        $query = $this->db->query('SELECT `id`, `member_id`, `name`, `email`, `title`, `content`, `date` FROM `site_contacts` ' . $where . ' ORDER BY `id` DESC LIMIT ' . $result['pages']['limit']);
+    	$query = $this->db->query('SELECT `id`, `member_id`, `name`, `email`, `title`, `content`, `date` FROM `site_contacts` ' . $where . ' ORDER BY `id` DESC LIMIT ' . $result['pages']['limit']);
         //
-        if ($query == true)
-        {
-            $result['data'] = $query;
-            $result['rows'] = $query->num_rows;
+    	if ($query == true)
+    	{
+    		$result['data'] = $query;
+    		$result['rows'] = $query->num_rows;
             //
-            return $result;
-        }
+    		return $result;
+    	}
         //
-        return false;
+    	return false;
     }
 
     /**
@@ -83,13 +88,13 @@ class Site extends Model
     function deleteContact($contact_id = null)
     {
         // BORRAR PALABRA
-        $query = $this->db->query('DELETE FROM `site_contacts` WHERE `id` = \''.$contact_id.'\' LIMIT 1');
+    	$query = $this->db->query('DELETE FROM `site_contacts` WHERE `id` = \''.$contact_id.'\' LIMIT 1');
         //
-        if ($query == true)
-        {
-            return true;
-        }
+    	if ($query == true)
+    	{
+    		return true;
+    	}
         // RETORNA FALSE SI NO SE HA ELIMINADO NADA
-        return false;
+    	return false;
     }
-}
+  }

@@ -30,6 +30,10 @@ class Extra extends Model
 		if(count($_SESSION['lastUrl'])>2) array_shift($_SESSION['lastUrl']);*/
 	}
 
+	function __destruct()
+	{
+
+	}
 
   /**
    * Muestra un mensaje informativo TOAST MATERIALIZECSS
@@ -38,46 +42,46 @@ class Extra extends Model
   {
   	$messages = !empty($messages) ? $messages : (isset($_SESSION['message']) ? $_SESSION['message'] : '');
 
-    if(!empty($messages))
-    {
-      $html = '<script>window.onload = function() {';
+  	if(!empty($messages))
+  	{
+  		$html = '<script>window.onload = function() {';
 
-      foreach ($messages as $key => $msg)
-      {
-       if(!empty($msg[0]))
-       {
-        $html .= ("M.toast({html: '".$msg[0][0]."'}); ");
-      }
-    }
-    $html .= '};</script>';
+  		foreach ($messages as $key => $msg)
+  		{
+  			if(!empty($msg[0]))
+  			{
+  				$html .= ("M.toast({html: '".$msg[0][0]."'}); ");
+  			}
+  		}
+  		$html .= '};</script>';
 
-    unset($_SESSION['message']);
+  		unset($_SESSION['message']);
 
-    return $html;
+  		return $html;
+  	}
+
+  	return '';
   }
 
-  return '';
-}
 
+  function setToast($message = array())
+  {
+  	/* Eliminar vacios */
+  	$message = array_filter($message);
 
-function setToast($message = array())
-{
- /* Eliminar vacios */
- $message = array_filter($message);
+  	if( !empty($message) )
+  	{
+  		/* Ordenar array */
+  		sort($message);
 
- if( !empty($message) )
- {
-  /* Ordenar array */
-  sort($message);
+  		/* Establece el mensaje en la sesión */
+  		$_SESSION['message'][] = $message;
 
-  /* Establece el mensaje en la sesión */
-  $_SESSION['message'][] = $message;
+  		return true;
+  	}
 
-  return true;
-}
-
-return false;
-}
+  	return false;
+  }
 
 
     /**

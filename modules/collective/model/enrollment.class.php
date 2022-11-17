@@ -22,6 +22,12 @@ class Enrollment extends Model
 	}
 
 
+	function __destruct()
+	{
+
+	}
+
+
 	/**
 	 * Devuelve Todas las incripciones
 	 * @param

@@ -12,16 +12,21 @@
 
 class Config extends Model
 {
-    public function getConfig()
-    {
-        return $this->config;
-    }
+	public function getConfig()
+	{
+		return $this->config;
+	}
 
-    public function get($key = null){
-    	return $this->config[$key];
-    }
+	function __destruct()
+	{
 
-    public function set($key = null, $val = null){
-    	$this->config[$key] = $val;
-    }
+	}
+
+	public function get($key = null){
+		return $this->config[$key];
+	}
+
+	public function set($key = null, $val = null){
+		$this->config[$key] = $val;
+	}
 }

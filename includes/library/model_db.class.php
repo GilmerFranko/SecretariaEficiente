@@ -20,6 +20,7 @@ class Models extends Model
 	function __destruct()
 	{
 		$this->resetAll();
+
 	}
 
 	/* Propiedades */
@@ -95,12 +96,12 @@ class Models extends Model
 		$values  = array_values($data); $values = implode($values, '\',\'');
 		$sql     =  ('INSERT INTO '.$this->table.' (`'.$estruct.'`, `created`) VALUES (\''.$values.'\', UNIX_TIMESTAMP())');
 
-		if($this->db->query($sql))
-		{
-			return true;
+			if($this->db->query($sql))
+			{
+				return true;
+			}
+			return false;
 		}
-		return false;
-	}
 
 	/**
 	 * Devuelve la ultima fila de la tabla

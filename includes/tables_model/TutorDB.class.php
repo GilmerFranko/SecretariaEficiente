@@ -19,6 +19,11 @@ class TutorDB extends Models
 		//$this->set_table("students")
 	}
 
+	function __destruct()
+	{
+
+	}
+
 	public function getTutor()
 	{
 		return 'antonio';
